@@ -7,8 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Phumla_Kamnandi.Properties;
+using Phumla_Kamnandi.Presentation;
 
-namespace Phumla_Kamnandi
+namespace Phumla_Kamnandi.Data
 {
     public class DB
     {
