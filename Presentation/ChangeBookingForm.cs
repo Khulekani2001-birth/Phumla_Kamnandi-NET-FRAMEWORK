@@ -90,7 +90,7 @@ namespace Phumla_Kamnandi.Presentation
             guestIDTextBox.Text = "";
             depositTextBox.Text = "";
             roomNoTextBox.Text = "";
-            changeDateTimePicker.ResetText;
+            changeDateTimePicker.Value = changeDateTimePicker.MinDate;
             priceTextBox.Text = "";
         }
         #endregion

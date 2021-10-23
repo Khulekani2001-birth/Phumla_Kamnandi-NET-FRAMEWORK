@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Phumla_Kamnandi.Business
 {
-	class Guest
+	public class Guest
 	{
 		#region Data Members
 		private String id;

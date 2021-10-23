@@ -20,13 +20,6 @@ namespace Phumla_Kamnandi.Presentation
         private Collection<Booking> bookings;
         private Booking booking;
         private BookingController bookingController;
-        private FormState state;
-
-        public enum FormState
-        {
-            View = 0,
-            Delete = 1,
-        }
         #endregion
 
         #region Constructor
@@ -34,10 +27,9 @@ namespace Phumla_Kamnandi.Presentation
         {
             InitializeComponent();
             bookingController = bControlller;
-            this.Load += CancelBookingListingForm_Load;
-            this.Activated += CancelBookingListingForm_Activated;
-            this.FormClosed += CancelBookingListingForm_FormClosed;
-            state = FormState.View;
+            this.Load += CancelBookingForm_Load;
+            this.Activated += CancelBookingForm_Activated;
+            this.FormClosed += CancelBookingForm_FormClosed;
         }
 
         #endregion
@@ -87,7 +79,7 @@ namespace Phumla_Kamnandi.Presentation
         #endregion
 
         #region Events
-        private void CancelBookingListingForm_Load(object sender, EventArgs e)
+        private void CancelBookingForm_Load(object sender, EventArgs e)
         {
             cancelBookingListView.View = View.Details;
         }
@@ -95,7 +87,7 @@ namespace Phumla_Kamnandi.Presentation
         private void CancelBookingForm_Activated(object sender, EventArgs e)
         {
             cancelBookingListView.View = View.Details;
-            setUpCancelBookingListingForm();
+            setUpCancelBookingForm();
             ShowAll(false);
         }
 
@@ -108,7 +100,7 @@ namespace Phumla_Kamnandi.Presentation
 
         #region ListViewSetUp
 
-        public void setUpCancelBookingListingForm()
+        public void setUpCancelBookingForm()
         {
             ListViewItem cancelBookingDetails;
             bookings = null;
@@ -151,7 +143,7 @@ namespace Phumla_Kamnandi.Presentation
         #region Buttons
         /*private void listAllButton_Click(object sender, EventArgs e)///do we need this?
         {
-            setUpCancelBookingListingForm();
+            setUpCancelBookingForm();
         }*/
 
         /*private void deleteButton_Click(object sender, EventArgs e)
@@ -164,9 +156,8 @@ namespace Phumla_Kamnandi.Presentation
         {
             bookingController.DataMaintenance(booking, Data.DB.DBOperation.Delete);
             bookingController.FinalizeChanges(booking);
-            state = FormState.View;
             ShowAll(false);
-            setUpCancelBookingListingForm();
+            setUpCancelBookingForm();
         }
 
         private void exitButton_Click(object sender, EventArgs e)

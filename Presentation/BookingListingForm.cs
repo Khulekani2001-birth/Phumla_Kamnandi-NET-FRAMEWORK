@@ -26,11 +26,9 @@ namespace Phumla_Kamnandi.Presentation
         {
             InitializeComponent();
             bookingController = bControlller;
-            this.Load += QueryBookingListingForm_Load;
-            this.Activated += QueryBookingListingForm_Activated;
-            this.FormClosed += QueryBookingListingForm_FormClosed;
-            //state = FormState.View;
-
+            this.Load += BookingListingForm_Load;
+            this.Activated += BookingListingForm_Activated;
+            this.FormClosed += BookingListingForm_FormClosed;
         }
 
         #endregion
@@ -99,20 +97,20 @@ namespace Phumla_Kamnandi.Presentation
         #endregion
 
         #region Events
-        private void QueryBookingListingForm_Load(object sender, EventArgs e)
+        private void BookingListingForm_Load(object sender, EventArgs e)
         {
             queryBookingListView.View = View.Details;
         }
 
-        private void QueryBookingListingForm_Activated(object sender, EventArgs e)
+        private void BookingListingForm_Activated(object sender, EventArgs e)
         {
             queryBookingListView.View = View.Details;
-            setUpQueryBookingListingForm();
+            setUpBookingListingForm();
             ShowAll(false);
             DisableEntries();
         }
 
-        private void QueryBookingListingForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void BookingListingForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             bookingListFormClosed = true;
         }

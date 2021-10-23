@@ -111,7 +111,7 @@ namespace Phumla_Kamnandi.Data
             aRow["RoomNo"] = booking.RoomNo;//We still need to discuss if room number can be changed
             aRow["Date"] = booking.Date;
             aRow["Price"] = booking.Price;
-            aRow["status"] = booking.Status;
+            aRow["Deposit"] = booking.Deposit;
         }
 
         private void FillRow(DataRow aRow, Guest guest, DB.DBOperation operation)

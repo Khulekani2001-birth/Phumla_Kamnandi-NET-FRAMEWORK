@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Phumla_Kamnandi.Business
 {
-    class Booking
+    public class Booking
     {
         #region Variables
 

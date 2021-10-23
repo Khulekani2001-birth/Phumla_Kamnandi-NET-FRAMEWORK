@@ -181,6 +181,9 @@ namespace Phumla_Kamnandi.Presentation
             this.Controls.Add(this.queryBookingListView);
             this.Name = "BookingListingForm";
             this.Text = "BookingListingForm";
+            this.Activated += new System.EventHandler(this.BookingListingForm_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BookingListingForm_FormClosed);
+            this.Load += new System.EventHandler(this.BookingListingForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -10,7 +10,7 @@ using Phumla_Kamnandi.Properties;
 
 namespace Phumla_Kamnandi
 {
-    class DB
+    public class DB
     {
         #region Variable declaration
         private string strConn = Settings.Default.PhumlaKamnandiDBConnectionString;
