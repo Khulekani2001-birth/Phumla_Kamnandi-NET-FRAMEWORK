@@ -1,7 +1,7 @@
 ﻿
 namespace Phumla_Kamnandi.Presentation
 {
-    partial class BookingsMDIParent
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -75,7 +75,7 @@ namespace Phumla_Kamnandi.Presentation
             this.newBookingButton.UseVisualStyleBackColor = true;
             this.newBookingButton.Click += new System.EventHandler(this.newBookingButton_Click);
             // 
-            // BookingsMDIParent
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -84,8 +84,9 @@ namespace Phumla_Kamnandi.Presentation
             this.Controls.Add(this.listBookingsButton);
             this.Controls.Add(this.cancelBookingButton);
             this.Controls.Add(this.changeBookingButton);
-            this.Name = "BookingsMDIParent";
-            this.Text = "BookingsMDIParent";
+            this.IsMdiContainer = true;
+            this.Name = "MainForm";
+            this.Text = "Main Form";
             this.ResumeLayout(false);
 
         }

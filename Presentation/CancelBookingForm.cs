@@ -103,7 +103,7 @@ namespace Phumla_Kamnandi.Presentation
         public void setUpCancelBookingForm()
         {
             ListViewItem cancelBookingDetails;
-            bookings = null;
+            bookings = bookingController.allBookings;
 
             cancelBookingListView.Columns.Insert(0, "ID", 120, HorizontalAlignment.Left);
             cancelBookingListView.Columns.Insert(0, "GuestID", 120, HorizontalAlignment.Left);

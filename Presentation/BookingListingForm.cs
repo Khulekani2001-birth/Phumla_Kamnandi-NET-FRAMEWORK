@@ -121,7 +121,7 @@ namespace Phumla_Kamnandi.Presentation
         {
             ListViewItem QueryBoolingDetails;
             ClearAll();
-            bookings = null;
+            bookings = bookingController.allBookings;
 
             queryBookingListView.Columns.Insert(0, "ID", 120, HorizontalAlignment.Left);
             queryBookingListView.Columns.Insert(0, "GuestID", 120, HorizontalAlignment.Left);

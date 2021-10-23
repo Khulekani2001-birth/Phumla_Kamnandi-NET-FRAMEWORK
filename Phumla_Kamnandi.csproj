@@ -85,11 +85,11 @@
     <Compile Include="Presentation\BookingListingForm.Designer.cs">
       <DependentUpon>BookingListingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\BookingsMDIParent.cs">
+    <Compile Include="Presentation\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentation\BookingsMDIParent.Designer.cs">
-      <DependentUpon>BookingsMDIParent.cs</DependentUpon>
+    <Compile Include="Presentation\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentation\CancelBookingForm.cs">
       <SubType>Form</SubType>
@@ -120,8 +120,8 @@
     <EmbeddedResource Include="Presentation\BookingListingForm.resx">
       <DependentUpon>BookingListingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentation\BookingsMDIParent.resx">
-      <DependentUpon>BookingsMDIParent.cs</DependentUpon>
+    <EmbeddedResource Include="Presentation\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\CancelBookingForm.resx">
       <DependentUpon>CancelBookingForm.cs</DependentUpon>

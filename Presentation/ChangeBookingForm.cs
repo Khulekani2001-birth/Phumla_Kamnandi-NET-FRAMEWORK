@@ -19,13 +19,6 @@ namespace Phumla_Kamnandi.Presentation
         private Collection<Booking> bookings;
         private Booking booking;
         private BookingController bookingController;
-       /* private FormState state;
-
-        public enum FormState
-        {
-            View = 0,
-            Edit = 1,
-        }*/
         #endregion
 
         #region Constructor
@@ -119,7 +112,8 @@ namespace Phumla_Kamnandi.Presentation
         {
             ListViewItem changeBookingDetails;
             ClearAll();
-            bookings = null;
+
+            bookings = bookingController.allBookings;
 
             changeBookingListView.Columns.Insert(0, "ID", 120, HorizontalAlignment.Left);
             changeBookingListView.Columns.Insert(0, "GuestID", 120, HorizontalAlignment.Left);

@@ -11,7 +11,7 @@ using Phumla_Kamnandi.Business;
 
 namespace Phumla_Kamnandi.Presentation
 {
-    public partial class BookingsMDIParent : Form
+    public partial class MainForm : Form
     {
         #region Variables
         ChangeBookingForm changeBookingForm;
@@ -23,7 +23,7 @@ namespace Phumla_Kamnandi.Presentation
         #endregion
 
         #region Constructor
-        public BookingsMDIParent()
+        public MainForm()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
@@ -82,9 +82,16 @@ namespace Phumla_Kamnandi.Presentation
 
         private void newBookingButton_Click(object sender, EventArgs e)
         {
-            createBookingForm = new CreateBookingForm(bookingController);
-            createBookingForm.MdiParent = this;
-            createBookingForm.StartPosition = FormStartPosition.CenterParent;
+            if (createBookingForm == null)
+            {
+                CreateCreateBookingListingForm();
+            }
+            if (createBookingForm.createFormClosed)
+            {
+                CreateCreateBookingListingForm();
+            }
+
+            createBookingForm.Show();
         }
         #endregion
 
