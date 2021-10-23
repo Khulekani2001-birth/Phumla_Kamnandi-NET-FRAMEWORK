@@ -13,7 +13,7 @@ namespace Phumla_Kamnandi.Business
         private int roomNo;
         private DateTime date;
         private decimal price;
-        private string status;
+        private bool deposit;
 
         #endregion
 
@@ -49,10 +49,10 @@ namespace Phumla_Kamnandi.Business
             set { price = value; }
         }
 
-        public string Status
+        public bool Deposit
         {
-            get { return status; }
-            set { status = value; }
+            get { return deposit; }
+            set { deposit = value; }
         }
         #endregion
 

@@ -79,8 +79,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PhumlaKamnandiDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\CancelBookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\CancelBookingForm.Designer.cs">
+      <DependentUpon>CancelBookingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentation\CancelBookingForm.resx">
+      <DependentUpon>CancelBookingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
