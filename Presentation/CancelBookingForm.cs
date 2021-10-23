@@ -45,16 +45,6 @@ namespace Phumla_Kamnandi.Presentation
 
         private void ShowAll(bool value)
         {
-            //if in delete state, cancelbooking button should not be available.
-            /*if (state == FormState.Delete)
-            {
-                cancelBookingButton.Visible = !value;
-            }
-            else
-            {
-                cancelBookingButton.Visible = value;
-            }*/
-
             IDLabel.Visible = value;
             guestIDLabel.Visible = value;
             depositLabel.Visible = value;
@@ -75,22 +65,15 @@ namespace Phumla_Kamnandi.Presentation
             //deleteButton.Visible = value; 
         }
 
-        
-
-        /*private void EnableEntries(bool value)        WE WONT BE DOING ANY ENTRIES IN THIS FORM
+        private void DisableEntries()
         {
-            /*if (state == FormState.Delete)
-            {
-                cancelBookingButton.Enabled = !value;
-            }
-            else
-            {
-                cancelBookingButton.Enabled = value;
-            }*/
-
-        //exitButton.Enabled = value; 
-        //listAllButton.Enabled = value;
-        //deleteButton.Enabled = value;
+            IDTextBox.Enabled = false;
+            guestIDTextBox.Enabled = false;
+            depositTextBox.Enabled = false;
+            priceTextBox.Enabled = false;
+            dateTextBox.Enabled = false;
+            roomNoTextBox.Enabled = false;
+        }
         #endregion
 
         #region Events
@@ -146,8 +129,7 @@ namespace Phumla_Kamnandi.Presentation
         private void CancelBookingListView_SelectedIndexChanged(Object seder, EventArgs e)
         {
             ShowAll(true);
-            //state = FormState.View;
-            //EnableEntries(false);
+            DisableEntries();
             if (cancelBookingListView.SelectedItems.Count > 0) //if you select an Item
             {
                 booking = bookingController.Find(cancelBookingListView.SelectedItems[0].Text);
