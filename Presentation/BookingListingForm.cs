@@ -19,13 +19,6 @@ namespace Phumla_Kamnandi.Presentation
         private Collection<Booking> bookings;
         private Booking booking;
         private BookingController bookingController;
-        /*private FormState state;
-
-        public enum FormState
-        {
-            View = 0,
-            Edit = 2,
-        }*/
         #endregion
 
         #region Constructor
@@ -126,7 +119,7 @@ namespace Phumla_Kamnandi.Presentation
         #endregion
 
         #region List View SetUp
-        public void setUpQueryBookingListingForm()
+        public void setUpBookingListingForm()
         {
             ListViewItem QueryBoolingDetails;
             ClearAll();

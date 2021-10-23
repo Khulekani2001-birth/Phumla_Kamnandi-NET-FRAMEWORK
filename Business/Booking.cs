@@ -13,12 +13,10 @@ namespace Phumla_Kamnandi.Business
         private int roomNo;
         private DateTime date;
         private decimal price;
-        //private bool deposit;
-        private string status; 
+        private bool deposit; 
         #endregion
 
         #region Properties 
-
         public string ID
         {
             get { return id; }
@@ -49,10 +47,10 @@ namespace Phumla_Kamnandi.Business
             set { price = value; }
         }
 
-        public string Status
+        public bool Deposit
         {
-            get { return status; }
-            set { status = value; }
+            get { return deposit; }
+            set { deposit = value; }
         }
         #endregion
 
@@ -78,14 +76,14 @@ namespace Phumla_Kamnandi.Business
 
         #region constructor
 
-        public Booking(string id, string guestID, int roomNo, DateTime date, decimal price, string status)
+        public Booking(string id, string guestID, int roomNo, DateTime date, decimal price, bool deposit)
         {
             this.id = id;
             this.guestID = guestID;
             this.roomNo = roomNo;
             this.date = date;
             this.price = price;
-            this.status = status;
+            this.deposit = deposit;
 
         }
 
@@ -96,7 +94,7 @@ namespace Phumla_Kamnandi.Business
             roomNo = 0;
             date = DateTime.MinValue;
             price = 0;
-            status = "Unconfirmed";
+            deposit = false;
         }
 
         #endregion

@@ -43,7 +43,7 @@ namespace Phumla_Kamnandi.Business
             switch (operation)
             {
                 case DB.DBOperation.Add:
-                    bookings.Add(aBooking); //*** Add the employee to the Collection
+                    bookings.Add(aBooking);
                     break;
                 case DB.DBOperation.Edit:
                     index = FindIndex(aBooking);
@@ -58,10 +58,8 @@ namespace Phumla_Kamnandi.Business
 
         }
 
-        //***Commit the changes to the database
         public bool FinalizeChanges(Booking booking)
         {
-            //***call the EmployeeDB method that will commit the changes to the database
             return bookingDB.UpdateDataSource(booking);
         }
         #endregion
