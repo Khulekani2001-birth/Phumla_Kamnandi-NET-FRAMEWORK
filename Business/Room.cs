@@ -23,7 +23,7 @@ namespace Phumla_Kamnandi.Business
         }
         #endregion
 
-        #region NAme?
+        #region Methods
         public int RoomNo
         {
             get { return roomNo; }

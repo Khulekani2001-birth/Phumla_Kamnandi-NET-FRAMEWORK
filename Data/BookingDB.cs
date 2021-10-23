@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Phumla_Kamnandi.Business;
 using System.Text;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Phumla_Kamnandi.Data
 {
@@ -65,15 +67,13 @@ namespace Phumla_Kamnandi.Data
                 foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
                 {
                     myRow = myRow_loopVariable;
+                    guest = new Guest();
                     if (!(myRow.RowState == DataRowState.Deleted))
                     {
-                        guest = new Guest();
-
-                        guest.ID = Convert.ToString(myRow["ID"]).TrimEnd();
+                        guest.ID = Convert.ToString(myRow["GuestID"]).TrimEnd();
                         guest.Name = Convert.ToString(myRow["Name"]).TrimEnd();
                         guest.Surname = Convert.ToString(myRow["Surname"]).TrimEnd();
                         guest.Address = Convert.ToString(myRow["Address"]).TrimEnd();
-
                     }
                     guests.Add(guest);
                 }
@@ -83,15 +83,16 @@ namespace Phumla_Kamnandi.Data
                 foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
                 {
                     myRow = myRow_loopVariable;
+                    booking = new Booking();
                     if (!(myRow.RowState == DataRowState.Deleted))
                     {
-                        booking = new Booking();
 
-                        booking.ID = Convert.ToString(myRow["ID"]).TrimEnd();
+                        booking.ID = Convert.ToString(myRow["BookingID"]).TrimEnd();
                         booking.GuestID = Convert.ToString(myRow["GuestID"]).TrimEnd();
-                        booking.RoomNo = Convert.ToString(myRow["RoomNo"]).TrimEnd();
-                        booking.Date = Convert.ToString(myRow["Date"]).TrimEnd();
-                        booking.Price = Convert.ToString(myRow["Price"]).TrimEnd();
+                        booking.RoomNo = Convert.ToInt32(myRow["RoomNo"]);
+                        booking.Date = Convert.ToDateTime(myRow["Date"].ToString());
+                        //Convert.ToDateTime(row["StartOn"].ToString()).ToString("MMM dd").ToString();
+                        booking.Price = Convert.ToDecimal(myRow["Price"]);
 
                     }
                     bookings.Add(booking);
@@ -104,12 +105,13 @@ namespace Phumla_Kamnandi.Data
         {
             if (operation == DB.DBOperation.Add)
             {
-                aRow["ID"] = booking.ID;
+                aRow["BookingID"] = booking.ID;
                 aRow["GuestID"] = booking.GuestID;
             }
             aRow["RoomNo"] = booking.RoomNo;//We still need to discuss if room number can be changed
             aRow["Date"] = booking.Date;
             aRow["Price"] = booking.Price;
+            aRow["status"] = booking.Status;
         }
 
         private void FillRow(DataRow aRow, Guest guest, DB.DBOperation operation)
@@ -202,7 +204,6 @@ namespace Phumla_Kamnandi.Data
             aRow = dsMain.Tables[dataTable].NewRow();
             FillRow(aRow, guest, operation);
             dsMain.Tables[dataTable].Rows.Add(aRow);
-            break;
         }
         #endregion
 
@@ -212,7 +213,7 @@ namespace Phumla_Kamnandi.Data
             //WE'LL HAVE TO ADJUST ACCORDING TO DATABASE
             SqlParameter param = default(SqlParameter);
 
-            param = new SqlParameter("@ID", SqlDbType.NVarChar, 15, "ID");
+            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 15, "BookingID");
             daMain.InsertCommand.Parameters.Add(param);
 
             param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 10, "GuestID");
@@ -227,6 +228,8 @@ namespace Phumla_Kamnandi.Data
             param = new SqlParameter("@Price", SqlDbType.Decimal, 1, "Price");
             daMain.InsertCommand.Parameters.Add(param);
 
+            param = new SqlParameter("@status", SqlDbType.NVarChar, 10, "status");
+            daMain.InsertCommand.Parameters.Add(param);
         }
 
         private void Build_INSERT_Parameters(Guest guest)
@@ -234,7 +237,7 @@ namespace Phumla_Kamnandi.Data
             //WE'LL HAVE TO ADJUST ACCORDING TO DATABASE
             SqlParameter param = default(SqlParameter);
 
-            param = new SqlParameter("@ID", SqlDbType.NVarChar, 15, "ID");
+            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 15, "GuestID");
             daMain.InsertCommand.Parameters.Add(param);
 
             param = new SqlParameter("@Name", SqlDbType.NVarChar, 10, "Name");
@@ -250,13 +253,13 @@ namespace Phumla_Kamnandi.Data
 
         private void Create_INSERT_Command(Booking booking)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT into Bookings (ID, GuestID, RoomNo, Date, Price) VALUES (@ID, @GuestID, @RoomNo, @Date, @Price)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT into Bookings (BookingID, GuestID, RoomNo, Date, Price, status) VALUES (@BookingID, @GuestID, @RoomNo, @Date, @Price, @status)", cnMain);
 
             Build_INSERT_Parameters(booking);
         }
         private void Create_INSERT_Command(Guest guest)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT into Guests (ID, Name, Surname, Address) VALUES (@ID, @Name, @Surname, @Address)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT into Guests (GuestID, Name, Surname, Address) VALUES (@GuestID, @Name, @Surname, @Address)", cnMain);
 
             Build_INSERT_Parameters(guest);
         }
@@ -318,7 +321,7 @@ namespace Phumla_Kamnandi.Data
         private void Build_DELETE_Parameters(Booking booking)
         {
             SqlParameter param = default(SqlParameter);
-            param = new SqlParameter("@ID", SqlDbType.NVarChar, 100, "ID");
+            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 100, "BookingID");
             param.SourceVersion = DataRowVersion.Current;
             daMain.DeleteCommand.Parameters.Add(param);
 
@@ -337,11 +340,15 @@ namespace Phumla_Kamnandi.Data
             param = new SqlParameter("@Price", SqlDbType.Money, 8, "Price");
             param.SourceVersion = DataRowVersion.Current;
             daMain.DeleteCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@status", SqlDbType.Money, 8, "status");
+            param.SourceVersion = DataRowVersion.Current;
+            daMain.DeleteCommand.Parameters.Add(param);
         }
 
         private void Create_DELETE_Command(Booking booking)
         {                               //NOT SURE IF THIS IS RIGHT
-            daMain.DeleteCommand = new SqlCommand("DELETE Booking SET ID =@ID,GuestID =@GuestID, RoomNo = @RoomNo, Date =@Date, Price =@Price " + "WHERE ID = @ID", cnMain);
+            daMain.DeleteCommand = new SqlCommand("DELETE Booking SET BookingID =@BookingID,GuestID =@GuestID, RoomNo = @RoomNo, Date =@Date, Price =@Price, status =@status " + "WHERE ID = @ID", cnMain);
 
             Build_DELETE_Parameters(booking);
         }
