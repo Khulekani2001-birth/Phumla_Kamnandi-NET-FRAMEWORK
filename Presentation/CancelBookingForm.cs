@@ -42,6 +42,15 @@ namespace Phumla_Kamnandi.Presentation
         #endregion
 
         #region Utility Method
+        private void populateTextBoxes(Booking booking)
+        {
+            IDTextBox.Text = booking.ID;
+            guestIDTextBox.Text = booking.GuestID;
+            depositTextBox.Text = booking.Deposit.ToString();
+            roomNoTextBox.Text = booking.RoomNo.ToString();
+            dateTextBox.Text = booking.Date.ToString();
+            priceTextBox.Text = booking.Price.ToString();
+        }
 
         private void ShowAll(bool value)
         {
@@ -100,7 +109,7 @@ namespace Phumla_Kamnandi.Presentation
 
         public void setUpCancelBookingListingForm()
         {
-            ListViewItem cancelBoolingDetails;
+            ListViewItem cancelBookingDetails;
             bookings = null;
 
             cancelBookingListView.Columns.Insert(0, "ID", 120, HorizontalAlignment.Left);
@@ -112,14 +121,14 @@ namespace Phumla_Kamnandi.Presentation
 
             foreach (Booking booking in bookings)
             {
-                cancelBoolingDetails = new ListViewItem();
-                cancelBoolingDetails.Text = booking.ID.ToString();
-                cancelBoolingDetails.SubItems.Add(booking.GuestID.ToString());
-                cancelBoolingDetails.SubItems.Add(booking.RoomNo.ToString());
-                cancelBoolingDetails.SubItems.Add(booking.Date.ToString());
-                cancelBoolingDetails.SubItems.Add(booking.Price.ToString());
+                cancelBookingDetails = new ListViewItem();
+                cancelBookingDetails.Text = booking.ID.ToString();
+                cancelBookingDetails.SubItems.Add(booking.GuestID.ToString());
+                cancelBookingDetails.SubItems.Add(booking.RoomNo.ToString());
+                cancelBookingDetails.SubItems.Add(booking.Date.ToString());
+                cancelBookingDetails.SubItems.Add(booking.Price.ToString());
 
-                cancelBookingListView.Items.Add(cancelBoolingDetails);
+                cancelBookingListView.Items.Add(cancelBookingDetails);
             }
             cancelBookingListView.Refresh();
             cancelBookingListView.GridLines = true;
@@ -136,19 +145,6 @@ namespace Phumla_Kamnandi.Presentation
             }
             populateTextBoxes(booking);
         }
-
-        private void populateTextBoxes(Booking booking)
-        {
-            IDTextBox.Text = booking.ID;
-            guestIDTextBox.Text = booking.GuestID;
-            depositTextBox.Text = booking.Deposit.ToString();
-            roomNoTextBox.Text = booking.RoomNo.ToString();
-            dateTextBox.Text = booking.Date.ToString();
-            priceTextBox.Text = booking.Price.ToString();
-        }
-
-
-
         #endregion
 
         #region Buttons
@@ -165,7 +161,7 @@ namespace Phumla_Kamnandi.Presentation
 
         private void cancelBookingButton_Click(object sender, EventArgs e)
         {
-            bookingController.DataMantainance(booking, Data.DB.DBOperation.Delete);
+            bookingController.DataMaintenance(booking, Data.DB.DBOperation.Delete);
             bookingController.FinalizeChanges(booking);
             state = FormState.View;
             ShowAll(false);
