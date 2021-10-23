@@ -1,5 +1,4 @@
 ﻿using System;
-//Name Spaces
 using System.Data;
 using System.Data.SqlClient;
 using System.Collections.Generic;
@@ -7,19 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Phumla_Kamnandi.Properties;//***needs to be added to be able to use the Settings property
+using Phumla_Kamnandi.Properties;
 
 namespace Phumla_Kamnandi
 {
     class DB
     {
         #region Variable declaration
-        //***Once the database is created you can find the correct connection string by using the Settings.Default object to select the correct connection string
         private string strConn = Settings.Default.PhumlaKamnandiDBConnectionString;
         protected SqlConnection cnMain;
         protected DataSet dsMain;
         protected SqlDataAdapter daMain;
 
+        public enum DBOperation
+        {
+            Add,
+            Edit,
+            Delete
+        }
         #endregion
 
         #region Constructor
@@ -27,7 +31,6 @@ namespace Phumla_Kamnandi
         {
             try
             {
-                //Open a connection & create a new dataset object
                 cnMain = new SqlConnection(strConn);
                 dsMain = new DataSet();
             }
@@ -43,12 +46,10 @@ namespace Phumla_Kamnandi
         #region Update the DateSet
         public void FillDataSet(string aSQLstring, string aTable)
         {
-            //fills dataset fresh from the db for a specific table and with a specific Query
             try
             {
                 daMain = new SqlDataAdapter(aSQLstring, cnMain);
                 cnMain.Open();
-                //dsMain.Clear();
                 daMain.Fill(dsMain, aTable);
                 cnMain.Close();
             }
@@ -66,13 +67,9 @@ namespace Phumla_Kamnandi
             bool success;
             try
             {
-                //open the connection
                 cnMain.Open();
-                //***update the database table via the data adapter
                 daMain.Update(dsMain, table);
-                //---close the connection
                 cnMain.Close();
-                //refresh the dataset
                 FillDataSet(sqlLocal, table);
                 success = true;
             }
