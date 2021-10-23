@@ -91,6 +91,12 @@
     <Compile Include="Presentation\CreateBookingForm.Designer.cs">
       <DependentUpon>CreateBookingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentation\CreateGuestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\CreateGuestForm.Designer.cs">
+      <DependentUpon>CreateGuestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentation\CancelBookingForm.resx">
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentation\CreateBookingForm.resx">
       <DependentUpon>CreateBookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\CreateGuestForm.resx">
+      <DependentUpon>CreateGuestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
