@@ -131,15 +131,15 @@ namespace Phumla_Kamnandi.Presentation
             queryBookingListView.Columns.Insert(5, "depositPaid", 120, HorizontalAlignment.Left);
 
 
-            foreach (Booking booking in bookings)
+            foreach (Booking abooking in bookings)
             {
                 QueryBookingDetails = new ListViewItem();
-                QueryBookingDetails.Text = booking.ID.ToString();
-                QueryBookingDetails.SubItems.Add(booking.GuestID.ToString());
-                QueryBookingDetails.SubItems.Add(booking.RoomNo.ToString());
-                QueryBookingDetails.SubItems.Add(booking.Date.ToString());
-                QueryBookingDetails.SubItems.Add(booking.Price.ToString());
-                QueryBookingDetails.SubItems.Add(booking.Deposit.ToString());
+                QueryBookingDetails.Text = abooking.ID.ToString();
+                QueryBookingDetails.SubItems.Add(abooking.GuestID.ToString());
+                QueryBookingDetails.SubItems.Add(abooking.RoomNo.ToString());
+                QueryBookingDetails.SubItems.Add(abooking.Date.ToString());
+                QueryBookingDetails.SubItems.Add(abooking.Price.ToString());
+                QueryBookingDetails.SubItems.Add(abooking.Deposit.ToString());
 
 
                 queryBookingListView.Items.Add(QueryBookingDetails);
@@ -154,6 +154,7 @@ namespace Phumla_Kamnandi.Presentation
         #region Buttons
         private void exitButton_Click(object sender, EventArgs e)
         {
+            this.Close();
             bookingListFormClosed = true;
         }
         #endregion

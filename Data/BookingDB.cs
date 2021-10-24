@@ -57,7 +57,6 @@ namespace Phumla_Kamnandi.Data
         }
         private void Add2Collection(string table)
         {
-            //Declare references to a myRow object and an Employee object
             DataRow myRow = null;
             Guest guest;
             Booking booking;
@@ -86,7 +85,6 @@ namespace Phumla_Kamnandi.Data
                     booking = new Booking();
                     if (!(myRow.RowState == DataRowState.Deleted))
                     {
-
                         booking.ID = Convert.ToString(myRow["BookingID"]).TrimEnd();
                         booking.GuestID = Convert.ToString(myRow["GuestID"]).TrimEnd();
                         booking.RoomNo = Convert.ToInt32(myRow["RoomNo"]);
