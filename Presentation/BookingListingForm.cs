@@ -154,8 +154,8 @@ namespace Phumla_Kamnandi.Presentation
         #region Buttons
         private void exitButton_Click(object sender, EventArgs e)
         {
-            this.Close();
             bookingListFormClosed = true;
+            this.Close();
         }
         #endregion
 

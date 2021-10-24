@@ -54,6 +54,7 @@ namespace Phumla_Kamnandi.Presentation
             this.changeBookingListView.Size = new System.Drawing.Size(776, 203);
             this.changeBookingListView.TabIndex = 0;
             this.changeBookingListView.UseCompatibleStateImageBehavior = false;
+            this.changeBookingListView.SelectedIndexChanged += new System.EventHandler(this.changeBookingListView_SelectedIndexChanged_1);
             // 
             // IDTextBox
             // 

@@ -139,11 +139,11 @@ namespace Phumla_Kamnandi.Presentation
 
         }
 
-        private void ChangeBookingListView_SelectedIndexChanged(Object seder, EventArgs e)
+        private void changeBookingListView_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             ShowAll(true);
 
-            EnableEntries(false);
+            EnableEntries(true);
             if (changeBookingListView.SelectedItems.Count > 0) //if you select an Item
             {
                 booking = bookingController.Find(changeBookingListView.SelectedItems[0].Text);
@@ -176,5 +176,7 @@ namespace Phumla_Kamnandi.Presentation
             setUpChangeBookingListingForm();
         }
         #endregion
+
+       
     }
 }

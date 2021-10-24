@@ -129,11 +129,10 @@ namespace Phumla_Kamnandi.Presentation
 
         }
 
-        private void CancelBookingListView_SelectedIndexChanged(Object seder, EventArgs e)
+        private void cancelBookingListView_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             ShowAll(true);
-            DisableEntries();
-            if (cancelBookingListView.SelectedItems.Count > 0) 
+            if (cancelBookingListView.SelectedItems.Count > 0)
             {
                 booking = bookingController.Find(cancelBookingListView.SelectedItems[0].Text);
             }
@@ -156,5 +155,7 @@ namespace Phumla_Kamnandi.Presentation
             this.Close();
         }
         #endregion
+
+       
     }
 }

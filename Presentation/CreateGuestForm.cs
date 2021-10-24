@@ -72,7 +72,8 @@ namespace Phumla_Kamnandi.Presentation
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            //FOrgot
+            createFormClosed = true;
+            this.Close();
         }
 
         private void CreateGuestForm_Load(object sender, EventArgs e)

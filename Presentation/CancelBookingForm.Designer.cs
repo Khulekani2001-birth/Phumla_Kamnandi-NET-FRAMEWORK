@@ -75,6 +75,7 @@ namespace Phumla_Kamnandi.Presentation
             this.cancelBookingListView.Size = new System.Drawing.Size(729, 179);
             this.cancelBookingListView.TabIndex = 3;
             this.cancelBookingListView.UseCompatibleStateImageBehavior = false;
+            this.cancelBookingListView.SelectedIndexChanged += new System.EventHandler(this.cancelBookingListView_SelectedIndexChanged_1);
             // 
             // depositTextBox
             // 
