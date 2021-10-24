@@ -62,7 +62,7 @@ namespace Phumla_Kamnandi.Data
             Guest guest;
             Booking booking;
 
-            if (table == "Guest")
+            if (table == "Guests")
             {
                 foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
                 {
@@ -78,7 +78,7 @@ namespace Phumla_Kamnandi.Data
                     guests.Add(guest);
                 }
             }
-            else if (table == "Booking")
+            else if (table == "Bookings")
             {
                 foreach (DataRow myRow_loopVariable in dsMain.Tables[table].Rows)
                 {

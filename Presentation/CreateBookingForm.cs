@@ -91,5 +91,10 @@ namespace Phumla_Kamnandi.Presentation
             this.Close();
         }
         #endregion
+
+        private void CreateBookingForm_Load(object sender, EventArgs e)
+        {
+            ShowAll();
+        }
     }
 }
