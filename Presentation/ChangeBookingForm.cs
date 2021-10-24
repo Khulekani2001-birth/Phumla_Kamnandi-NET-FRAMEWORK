@@ -111,15 +111,16 @@ namespace Phumla_Kamnandi.Presentation
         public void setUpChangeBookingListingForm()
         {
             ListViewItem changeBookingDetails;
-            ClearAll();
+            changeBookingListView.Clear();
 
             bookings = bookingController.allBookings;
 
-            changeBookingListView.Columns.Insert(0, "ID", 120, HorizontalAlignment.Left);
-            changeBookingListView.Columns.Insert(0, "GuestID", 120, HorizontalAlignment.Left);
-            changeBookingListView.Columns.Insert(0, "RoomNo", 120, HorizontalAlignment.Left);
-            changeBookingListView.Columns.Insert(0, "Date", 120, HorizontalAlignment.Left);
-            changeBookingListView.Columns.Insert(0, "Price", 120, HorizontalAlignment.Left);
+            changeBookingListView.Columns.Insert(0, "BookingID", 120, HorizontalAlignment.Left);
+            changeBookingListView.Columns.Insert(1, "GuestID", 120, HorizontalAlignment.Left);
+            changeBookingListView.Columns.Insert(2, "RoomNo", 120, HorizontalAlignment.Left);
+            changeBookingListView.Columns.Insert(3, "Date", 120, HorizontalAlignment.Left);
+            changeBookingListView.Columns.Insert(4, "Price", 120, HorizontalAlignment.Left);
+            changeBookingListView.Columns.Insert(5, "depositPaid", 120, HorizontalAlignment.Left);
 
             foreach (Booking booking in bookings)
             {
@@ -129,6 +130,7 @@ namespace Phumla_Kamnandi.Presentation
                 changeBookingDetails.SubItems.Add(booking.RoomNo.ToString());
                 changeBookingDetails.SubItems.Add(booking.Date.ToString());
                 changeBookingDetails.SubItems.Add(booking.Price.ToString());
+                changeBookingDetails.SubItems.Add(booking.Deposit.ToString());
 
                 changeBookingListView.Items.Add(changeBookingDetails);
             }
@@ -159,6 +161,7 @@ namespace Phumla_Kamnandi.Presentation
         private void exitButton_Click(object sender, EventArgs e)
         {
             changeListFormClosed = true;
+            this.Close();
         }
 
         private void changeBookingButton_Click(object sender, EventArgs e)
