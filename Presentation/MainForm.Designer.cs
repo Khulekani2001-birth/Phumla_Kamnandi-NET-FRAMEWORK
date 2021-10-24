@@ -84,7 +84,6 @@ namespace Phumla_Kamnandi.Presentation
             this.Controls.Add(this.listBookingsButton);
             this.Controls.Add(this.cancelBookingButton);
             this.Controls.Add(this.changeBookingButton);
-            this.IsMdiContainer = true;
             this.Name = "MainForm";
             this.Text = "Main Form";
             this.ResumeLayout(false);
