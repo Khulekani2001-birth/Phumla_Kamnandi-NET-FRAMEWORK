@@ -155,6 +155,9 @@ namespace Phumla_Kamnandi.Presentation
         {
             cancelListFormClosed = true;
             this.Close();
+
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
         }
         #endregion
 
