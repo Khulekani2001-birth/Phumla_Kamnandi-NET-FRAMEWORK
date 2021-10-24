@@ -111,12 +111,11 @@ namespace Phumla_Kamnandi.Data
             aRow["RoomNo"] = booking.RoomNo;
             aRow["Date"] = booking.Date;
             aRow["Price"] = booking.Price;
-            aRow["paidDeposit"] = booking.Deposit.ToString();
+            aRow["depositPaid"] = booking.Deposit.ToString();
         }
 
         private void FillRow(DataRow aRow, Guest guest, DB.DBOperation operation)
         {
-            //if (operation == DB.DBOperation.Add) //The only operation that can be done anyway is only add
             aRow["ID"] = guest.ID;
             aRow["Name"] = guest.Name;
             aRow["Address"] = guest.Address;

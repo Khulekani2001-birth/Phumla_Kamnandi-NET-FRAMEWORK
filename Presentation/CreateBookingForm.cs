@@ -54,7 +54,7 @@ namespace Phumla_Kamnandi.Presentation
             booking = new Booking();
             booking.ID = iDTextBox.Text;
             booking.GuestID = guestIDTextBox.Text;
-            booking.Date = pickDateTimePicker.Value;
+            booking.Date = pickDateTimePicker.Value.Date;
             booking.Price = booking.calculatePrice(pickDateTimePicker.Value);
             booking.RoomNo = 0;
             booking.Deposit = false;
@@ -83,14 +83,13 @@ namespace Phumla_Kamnandi.Presentation
             bookingController.DataMaintenance(booking, Data.DB.DBOperation.Add);
             bookingController.FinalizeChanges(booking);
             ClearAll();
-            ShowAll();
         }
-        #endregion
 
         private void exitButton_Click(object sender, EventArgs e)
         {
             createFormClosed = true;
             this.Close();
         }
+        #endregion
     }
 }
