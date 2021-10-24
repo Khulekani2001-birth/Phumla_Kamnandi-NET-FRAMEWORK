@@ -65,19 +65,6 @@ namespace Phumla_Kamnandi.Business
         #endregion
 
         #region Searching through a collection
-        /*public Collection<Booking> FindByRole(Collection<Booking> booking)  MAYBE CHANGE TO FIND BY DATE??
-        {
-            Collection<Booking> matches = new Collection<Booking>();
-            foreach (Booking booking in bookings)
-            {
-                if (emp.role.getRoleValue == roleVal)
-                {
-                    matches.Add(booking);
-                }
-            }
-            return matches;
-        }*/
-
         public Booking Find(string ID)
         {
             int index = 0;

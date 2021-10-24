@@ -56,7 +56,7 @@ namespace Phumla_Kamnandi.Presentation
             booking.GuestID = guestIDTextBox.Text;
             booking.Date = pickDateTimePicker.Value.Date;
             booking.Price = booking.calculatePrice(pickDateTimePicker.Value);
-            booking.RoomNo = 0;
+            booking.RoomNo = 1;
             booking.Deposit = false;
         }
         #endregion
@@ -91,5 +91,10 @@ namespace Phumla_Kamnandi.Presentation
             this.Close();
         }
         #endregion
+
+        private void CreateBookingForm_Load(object sender, EventArgs e)
+        {
+            ShowAll();
+        }
     }
 }

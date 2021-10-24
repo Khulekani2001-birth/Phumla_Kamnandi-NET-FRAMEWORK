@@ -122,6 +122,7 @@ namespace Phumla_Kamnandi.Presentation
             this.Controls.Add(this.enterButton);
             this.Name = "CreateBookingForm";
             this.Text = "CreateBookingForm";
+            this.Load += new System.EventHandler(this.CreateBookingForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
