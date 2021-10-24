@@ -26,6 +26,7 @@ namespace Phumla_Kamnandi.Presentation
         {
             InitializeComponent();
             bookingController = bControlller;
+            booking = new Booking();
             this.Load += ChangeBookingListingForm_Load;
             this.Activated += ChangeBookingListingForm_Activated;
             this.FormClosed += ChangeBookingListingForm_FormClosed;
@@ -67,7 +68,6 @@ namespace Phumla_Kamnandi.Presentation
 
         private void PopulateObject()
         {
-            booking = new Booking();
             booking.ID = IDTextBox.Text;
             booking.GuestID = guestIDTextBox.Text;
             booking.Deposit = false;  //???
@@ -168,7 +168,8 @@ namespace Phumla_Kamnandi.Presentation
             bookingController.FinalizeChanges(booking);
             ClearAll();
 
-            ShowAll(false);
+            ShowAll(true);
+            EnableEntries(true);
             setUpChangeBookingListingForm();
         }
         #endregion

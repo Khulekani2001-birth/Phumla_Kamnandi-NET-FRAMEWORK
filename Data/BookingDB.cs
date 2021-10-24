@@ -57,7 +57,6 @@ namespace Phumla_Kamnandi.Data
         }
         private void Add2Collection(string table)
         {
-            //Declare references to a myRow object and an Employee object
             DataRow myRow = null;
             Guest guest;
             Booking booking;
@@ -86,7 +85,6 @@ namespace Phumla_Kamnandi.Data
                     booking = new Booking();
                     if (!(myRow.RowState == DataRowState.Deleted))
                     {
-
                         booking.ID = Convert.ToString(myRow["BookingID"]).TrimEnd();
                         booking.GuestID = Convert.ToString(myRow["GuestID"]).TrimEnd();
                         booking.RoomNo = Convert.ToInt32(myRow["RoomNo"]);
@@ -106,12 +104,12 @@ namespace Phumla_Kamnandi.Data
             if (operation == DB.DBOperation.Add)
             {
                 aRow["BookingID"] = booking.ID;
-                aRow["GuestID"] = booking.GuestID;
+                aRow["GuestID"] = Convert.ToInt32(booking.GuestID);
+                aRow["RoomNo"] = booking.RoomNo;
+                aRow["Date"] = booking.Date;
+                aRow["Price"] = booking.Price;
+                aRow["depositPaid"] = booking.Deposit.ToString();
             }
-            aRow["RoomNo"] = booking.RoomNo;
-            aRow["Date"] = booking.Date;
-            aRow["Price"] = booking.Price;
-            aRow["depositPaid"] = booking.Deposit.ToString();
         }
 
         private void FillRow(DataRow aRow, Guest guest, DB.DBOperation operation)
@@ -212,22 +210,22 @@ namespace Phumla_Kamnandi.Data
             //WE'LL HAVE TO ADJUST ACCORDING TO DATABASE
             SqlParameter param = default(SqlParameter);
 
-            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 15, "BookingID");
+            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 15, booking.ID);
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 10, "GuestID");
+            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 10, booking.GuestID);
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@RoomNo", SqlDbType.TinyInt, 100, "RoomNo");
+            param = new SqlParameter("@RoomNo", SqlDbType.Int, 100, Convert.ToString(booking.RoomNo));
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Date", SqlDbType.Date, 15, "Date");
+            param = new SqlParameter("@Date", SqlDbType.Date, 15, Convert.ToString(booking.Date));
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Price", SqlDbType.Decimal, 1, "Price");
+            param = new SqlParameter("@Price", SqlDbType.Decimal, 1, Convert.ToString(booking.Price));
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@depositPaid", SqlDbType.NVarChar, 10, "depositPaid");
+            param = new SqlParameter("@depositPaid", SqlDbType.NVarChar, 10, Convert.ToString(booking.Deposit));
             daMain.InsertCommand.Parameters.Add(param);
         }
 
@@ -236,29 +234,29 @@ namespace Phumla_Kamnandi.Data
             //WE'LL HAVE TO ADJUST ACCORDING TO DATABASE
             SqlParameter param = default(SqlParameter);
 
-            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 15, "GuestID");
+            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 15, guest.ID);
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Name", SqlDbType.NVarChar, 10, "Name");
+            param = new SqlParameter("@Name", SqlDbType.NVarChar, 10, guest.Name);
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Surname", SqlDbType.NVarChar, 100, "Surname");
+            param = new SqlParameter("@Surname", SqlDbType.NVarChar, 100, guest.Surname);
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Address", SqlDbType.NVarChar, 15, "Address");
+            param = new SqlParameter("@Address", SqlDbType.NVarChar, 15, guest.Address);
             daMain.InsertCommand.Parameters.Add(param);
 
         }
 
         private void Create_INSERT_Command(Booking booking)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT into Bookings (BookingID, GuestID, RoomNo, Date, Price, depositPaid) VALUES (@BookingID, @GuestID, @RoomNo, @Date, @Price, @depositPaid)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT into Bookings ("+booking.ID+","+booking.GuestID+","+ booking.RoomNo+","+booking.Date+","+ booking.Price+","+booking.Deposit+") VALUES (@BookingID, @GuestID, @RoomNo, @Date, @Price, @depositPaid)", cnMain);
 
             Build_INSERT_Parameters(booking);
         }
         private void Create_INSERT_Command(Guest guest)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT into Guests (GuestID, Name, Surname, Address) VALUES (@GuestID, @Name, @Surname, @Address)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT into Guests ("+guest.ID+","+ guest.Name+","+ guest.Surname+","+ guest.Address+") VALUES (@GuestID, @Name, @Surname, @Address)", cnMain);
 
             Build_INSERT_Parameters(guest);
         }

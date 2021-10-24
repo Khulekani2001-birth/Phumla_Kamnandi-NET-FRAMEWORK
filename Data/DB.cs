@@ -68,7 +68,7 @@ namespace Phumla_Kamnandi.Data
             bool success;
             try
             {
-                cnMain.Open();
+                //cnMain.Open();
                 daMain.Update(dsMain, table);
                 cnMain.Close();
                 FillDataSet(sqlLocal, table);
