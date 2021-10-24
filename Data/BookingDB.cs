@@ -258,7 +258,7 @@ namespace Phumla_Kamnandi.Data
 
         private void Create_INSERT_Command(Booking booking)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT INTO Bookings (BookingID, GuestID, RoomNo, Date, Price, depositPaid) VALUES (" + booking.ID.ToString()+", "+Convert.ToInt32(booking.GuestID)+", "+ Convert.ToInt32(booking.RoomNo)+", "+booking.Date+", "+ booking.Price+", "+booking.Deposit.ToString()+")", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT INTO Bookings (BookingID, GuestID, RoomNo, Date, Price, depositPaid) VALUES (" + booking.ID.ToString() + ", " + Convert.ToInt32(booking.GuestID) + ", " + Convert.ToInt32(booking.RoomNo) + ", " + booking.Date + ", " + booking.Price.ToString() + ", " + booking.Deposit.ToString() + ")", cnMain);
 
             Build_INSERT_Parameters(booking);
         }
