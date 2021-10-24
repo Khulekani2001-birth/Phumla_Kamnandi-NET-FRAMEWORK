@@ -141,7 +141,7 @@ namespace Phumla_Kamnandi.Presentation
 
         private void changeBookingListView_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            ShowAll(true);
+             ShowAll(true);
 
             EnableEntries(true);
             if (changeBookingListView.SelectedItems.Count > 0) //if you select an Item
