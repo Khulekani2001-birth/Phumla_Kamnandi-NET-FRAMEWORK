@@ -119,30 +119,30 @@ namespace Phumla_Kamnandi.Presentation
         #region List View SetUp
         public void setUpBookingListingForm()
         {
-            ListViewItem QueryBoolingDetails;
-            ClearAll();
+            ListViewItem QueryBookingDetails;
+            queryBookingListView.Clear();
             bookings = bookingController.allBookings;
 
-            queryBookingListView.Columns.Insert(0, "ID", 120, HorizontalAlignment.Left);
-            queryBookingListView.Columns.Insert(0, "GuestID", 120, HorizontalAlignment.Left);
-            queryBookingListView.Columns.Insert(0, "RoomNo", 120, HorizontalAlignment.Left);
-            queryBookingListView.Columns.Insert(0, "Date", 120, HorizontalAlignment.Left);
-            queryBookingListView.Columns.Insert(0, "Price", 120, HorizontalAlignment.Left);
-            queryBookingListView.Columns.Insert(0, "Deposit", 120, HorizontalAlignment.Left);
+            queryBookingListView.Columns.Insert(0, "BookingID", 120, HorizontalAlignment.Left);
+            queryBookingListView.Columns.Insert(1, "GuestID", 120, HorizontalAlignment.Left);
+            queryBookingListView.Columns.Insert(2, "RoomNo", 120, HorizontalAlignment.Left);
+            queryBookingListView.Columns.Insert(3, "Date", 120, HorizontalAlignment.Left);
+            queryBookingListView.Columns.Insert(4, "Price", 120, HorizontalAlignment.Left);
+            queryBookingListView.Columns.Insert(5, "depositPaid", 120, HorizontalAlignment.Left);
 
 
             foreach (Booking booking in bookings)
             {
-                QueryBoolingDetails = new ListViewItem();
-                QueryBoolingDetails.Text = booking.ID.ToString();
-                QueryBoolingDetails.SubItems.Add(booking.GuestID.ToString());
-                QueryBoolingDetails.SubItems.Add(booking.RoomNo.ToString());
-                QueryBoolingDetails.SubItems.Add(booking.Date.ToString());
-                QueryBoolingDetails.SubItems.Add(booking.Price.ToString());
-                QueryBoolingDetails.SubItems.Add(booking.Deposit.ToString());
+                QueryBookingDetails = new ListViewItem();
+                QueryBookingDetails.Text = booking.ID.ToString();
+                QueryBookingDetails.SubItems.Add(booking.GuestID.ToString());
+                QueryBookingDetails.SubItems.Add(booking.RoomNo.ToString());
+                QueryBookingDetails.SubItems.Add(booking.Date.ToString());
+                QueryBookingDetails.SubItems.Add(booking.Price.ToString());
+                QueryBookingDetails.SubItems.Add(booking.Deposit.ToString());
 
 
-                queryBookingListView.Items.Add(QueryBoolingDetails);
+                queryBookingListView.Items.Add(QueryBookingDetails);
             }
             queryBookingListView.Refresh();
             queryBookingListView.GridLines = true;

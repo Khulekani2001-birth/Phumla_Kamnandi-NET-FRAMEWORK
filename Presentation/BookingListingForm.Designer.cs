@@ -48,9 +48,9 @@ namespace Phumla_Kamnandi.Presentation
             // queryBookingListView
             // 
             this.queryBookingListView.HideSelection = false;
-            this.queryBookingListView.Location = new System.Drawing.Point(12, 29);
+            this.queryBookingListView.Location = new System.Drawing.Point(12, 22);
             this.queryBookingListView.Name = "queryBookingListView";
-            this.queryBookingListView.Size = new System.Drawing.Size(751, 97);
+            this.queryBookingListView.Size = new System.Drawing.Size(776, 232);
             this.queryBookingListView.TabIndex = 0;
             this.queryBookingListView.UseCompatibleStateImageBehavior = false;
             this.queryBookingListView.SelectedIndexChanged += new System.EventHandler(this.queryBookingListView_SelectedIndexChanged);
@@ -66,42 +66,42 @@ namespace Phumla_Kamnandi.Presentation
             // 
             // IDTextbox
             // 
-            this.IDTextbox.Location = new System.Drawing.Point(173, 170);
+            this.IDTextbox.Location = new System.Drawing.Point(173, 294);
             this.IDTextbox.Name = "IDTextbox";
             this.IDTextbox.Size = new System.Drawing.Size(100, 20);
             this.IDTextbox.TabIndex = 2;
             // 
             // priceTextBox
             // 
-            this.priceTextBox.Location = new System.Drawing.Point(426, 223);
+            this.priceTextBox.Location = new System.Drawing.Point(426, 344);
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(100, 20);
             this.priceTextBox.TabIndex = 3;
             // 
             // dateTextBox
             // 
-            this.dateTextBox.Location = new System.Drawing.Point(426, 170);
+            this.dateTextBox.Location = new System.Drawing.Point(426, 294);
             this.dateTextBox.Name = "dateTextBox";
             this.dateTextBox.Size = new System.Drawing.Size(100, 20);
             this.dateTextBox.TabIndex = 4;
             // 
             // roomNoTextBox
             // 
-            this.roomNoTextBox.Location = new System.Drawing.Point(173, 282);
+            this.roomNoTextBox.Location = new System.Drawing.Point(173, 398);
             this.roomNoTextBox.Name = "roomNoTextBox";
             this.roomNoTextBox.Size = new System.Drawing.Size(100, 20);
             this.roomNoTextBox.TabIndex = 5;
             // 
             // guestIDTextBox
             // 
-            this.guestIDTextBox.Location = new System.Drawing.Point(173, 223);
+            this.guestIDTextBox.Location = new System.Drawing.Point(173, 344);
             this.guestIDTextBox.Name = "guestIDTextBox";
             this.guestIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.guestIDTextBox.TabIndex = 6;
             // 
             // depositTextBox
             // 
-            this.depositTextBox.Location = new System.Drawing.Point(426, 282);
+            this.depositTextBox.Location = new System.Drawing.Point(426, 398);
             this.depositTextBox.Name = "depositTextBox";
             this.depositTextBox.Size = new System.Drawing.Size(100, 20);
             this.depositTextBox.TabIndex = 7;
@@ -109,7 +109,7 @@ namespace Phumla_Kamnandi.Presentation
             // IDLabel
             // 
             this.IDLabel.AutoSize = true;
-            this.IDLabel.Location = new System.Drawing.Point(62, 173);
+            this.IDLabel.Location = new System.Drawing.Point(62, 297);
             this.IDLabel.Name = "IDLabel";
             this.IDLabel.Size = new System.Drawing.Size(60, 13);
             this.IDLabel.TabIndex = 8;
@@ -118,7 +118,7 @@ namespace Phumla_Kamnandi.Presentation
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
-            this.priceLabel.Location = new System.Drawing.Point(360, 223);
+            this.priceLabel.Location = new System.Drawing.Point(354, 351);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(31, 13);
             this.priceLabel.TabIndex = 9;
@@ -127,7 +127,7 @@ namespace Phumla_Kamnandi.Presentation
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(360, 173);
+            this.dateLabel.Location = new System.Drawing.Point(354, 297);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(30, 13);
             this.dateLabel.TabIndex = 10;
@@ -136,7 +136,7 @@ namespace Phumla_Kamnandi.Presentation
             // guestIDLabel
             // 
             this.guestIDLabel.AutoSize = true;
-            this.guestIDLabel.Location = new System.Drawing.Point(62, 223);
+            this.guestIDLabel.Location = new System.Drawing.Point(62, 347);
             this.guestIDLabel.Name = "guestIDLabel";
             this.guestIDLabel.Size = new System.Drawing.Size(49, 13);
             this.guestIDLabel.TabIndex = 11;
@@ -145,7 +145,7 @@ namespace Phumla_Kamnandi.Presentation
             // roomNoLabel
             // 
             this.roomNoLabel.AutoSize = true;
-            this.roomNoLabel.Location = new System.Drawing.Point(62, 285);
+            this.roomNoLabel.Location = new System.Drawing.Point(62, 401);
             this.roomNoLabel.Name = "roomNoLabel";
             this.roomNoLabel.Size = new System.Drawing.Size(73, 13);
             this.roomNoLabel.TabIndex = 12;
@@ -154,7 +154,7 @@ namespace Phumla_Kamnandi.Presentation
             // depositLabel
             // 
             this.depositLabel.AutoSize = true;
-            this.depositLabel.Location = new System.Drawing.Point(360, 285);
+            this.depositLabel.Location = new System.Drawing.Point(354, 401);
             this.depositLabel.Name = "depositLabel";
             this.depositLabel.Size = new System.Drawing.Size(66, 13);
             this.depositLabel.TabIndex = 13;
