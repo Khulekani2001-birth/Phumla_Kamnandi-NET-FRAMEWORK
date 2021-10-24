@@ -105,12 +105,12 @@ namespace Phumla_Kamnandi.Presentation
             ListViewItem cancelBookingDetails;
             bookings = bookingController.allBookings;
 
-            cancelBookingListView.Columns.Insert(0, "ID", 120, HorizontalAlignment.Left);
-            cancelBookingListView.Columns.Insert(0, "GuestID", 120, HorizontalAlignment.Left);
-            cancelBookingListView.Columns.Insert(0, "RoomNo", 120, HorizontalAlignment.Left);
-            cancelBookingListView.Columns.Insert(0, "Date", 120, HorizontalAlignment.Left);
-            cancelBookingListView.Columns.Insert(0, "Price", 120, HorizontalAlignment.Left);
-            cancelBookingListView.Columns.Insert(0, "Deposit", 120, HorizontalAlignment.Left);
+            cancelBookingListView.Columns.Insert(0, "BookingID", 120, HorizontalAlignment.Left);
+            cancelBookingListView.Columns.Insert(1, "GuestID", 120, HorizontalAlignment.Left);
+            cancelBookingListView.Columns.Insert(2, "RoomNo", 120, HorizontalAlignment.Left);
+            cancelBookingListView.Columns.Insert(3, "Date", 120, HorizontalAlignment.Left);
+            cancelBookingListView.Columns.Insert(4, "Price", 120, HorizontalAlignment.Left);
+            cancelBookingListView.Columns.Insert(5, "Deposit", 120, HorizontalAlignment.Left);
 
             foreach (Booking booking in bookings)
             {
@@ -120,6 +120,7 @@ namespace Phumla_Kamnandi.Presentation
                 cancelBookingDetails.SubItems.Add(booking.RoomNo.ToString());
                 cancelBookingDetails.SubItems.Add(booking.Date.ToString());
                 cancelBookingDetails.SubItems.Add(booking.Price.ToString());
+                cancelBookingDetails.SubItems.Add(booking.Deposit.ToString());
 
                 cancelBookingListView.Items.Add(cancelBookingDetails);
             }
@@ -132,7 +133,7 @@ namespace Phumla_Kamnandi.Presentation
         {
             ShowAll(true);
             DisableEntries();
-            if (cancelBookingListView.SelectedItems.Count > 0) //if you select an Item
+            if (cancelBookingListView.SelectedItems.Count > 0) 
             {
                 booking = bookingController.Find(cancelBookingListView.SelectedItems[0].Text);
             }
@@ -141,17 +142,6 @@ namespace Phumla_Kamnandi.Presentation
         #endregion
 
         #region Buttons
-        /*private void listAllButton_Click(object sender, EventArgs e)///do we need this?
-        {
-            setUpCancelBookingForm();
-        }*/
-
-        /*private void deleteButton_Click(object sender, EventArgs e)
-        {
-            state = FormState.Delete;
-            EnableEntries(false);
-        }*/
-
         private void cancelBookingButton_Click(object sender, EventArgs e)
         {
             bookingController.DataMaintenance(booking, Data.DB.DBOperation.Delete);
@@ -163,6 +153,7 @@ namespace Phumla_Kamnandi.Presentation
         private void exitButton_Click(object sender, EventArgs e)
         {
             cancelListFormClosed = true;
+            this.Close();
         }
         #endregion
     }
