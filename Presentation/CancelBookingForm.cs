@@ -130,18 +130,15 @@ namespace Phumla_Kamnandi.Presentation
 
         private void cancelBookingListView_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-              ShowAll(true);
-            if (cancelBookingListView.SelectedItems.Count > 0)
+            ShowAll(true);
+
             DisableEntries(); 
             if (cancelBookingListView.SelectedItems.Count > 0) 
             {
                 booking = bookingController.Find(cancelBookingListView.SelectedItems[0].Text);
             }
 
-            MessageBox.Show("You have clicked Ok Button");
-
             populateTextBoxes(booking);
-            ShowAll(true);
         }
         #endregion
 

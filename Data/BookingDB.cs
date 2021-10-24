@@ -139,7 +139,7 @@ namespace Phumla_Kamnandi.Data
 
                 if (!(myRow.RowState == DataRowState.Deleted))
                 {
-                    if (booking.ID == Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["ID"]))
+                    if (booking.ID == Convert.ToString(dsMain.Tables[table].Rows[rowIndex]["BookingID"]))
                     {
                         returnValue = rowIndex;
                     }

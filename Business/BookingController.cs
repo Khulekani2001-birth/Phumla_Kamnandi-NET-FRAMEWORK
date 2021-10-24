@@ -54,8 +54,6 @@ namespace Phumla_Kamnandi.Business
                     bookings.Remove(bookings[index]);
                     break;
             }
-
-
         }
 
         public bool FinalizeChanges(Booking booking)
