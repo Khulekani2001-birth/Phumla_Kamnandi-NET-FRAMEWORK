@@ -47,6 +47,7 @@ namespace Phumla_Kamnandi.Presentation
             this.enterButton.TabIndex = 0;
             this.enterButton.Text = "Make Booking";
             this.enterButton.UseVisualStyleBackColor = true;
+            this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
             // 
             // IDLabel
             // 

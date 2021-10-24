@@ -91,8 +91,8 @@ namespace Phumla_Kamnandi.Data
                         booking.GuestID = Convert.ToString(myRow["GuestID"]).TrimEnd();
                         booking.RoomNo = Convert.ToInt32(myRow["RoomNo"]);
                         booking.Date = Convert.ToDateTime(myRow["Date"].ToString());
-                        //Convert.ToDateTime(row["StartOn"].ToString()).ToString("MMM dd").ToString();
                         booking.Price = Convert.ToDecimal(myRow["Price"]);
+                        booking.Deposit = Convert.ToBoolean(myRow["depositPaid"]);
 
                     }
                     bookings.Add(booking);
@@ -108,7 +108,7 @@ namespace Phumla_Kamnandi.Data
                 aRow["BookingID"] = booking.ID;
                 aRow["GuestID"] = booking.GuestID;
             }
-            aRow["RoomNo"] = booking.RoomNo;//We still need to discuss if room number can be changed
+            aRow["RoomNo"] = booking.RoomNo;
             aRow["Date"] = booking.Date;
             aRow["Price"] = booking.Price;
             aRow["Deposit"] = booking.Deposit;
@@ -228,7 +228,7 @@ namespace Phumla_Kamnandi.Data
             param = new SqlParameter("@Price", SqlDbType.Decimal, 1, "Price");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@status", SqlDbType.NVarChar, 10, "status");
+            param = new SqlParameter("@depositPaid", SqlDbType.NVarChar, 10, "depositPaid");
             daMain.InsertCommand.Parameters.Add(param);
         }
 
@@ -253,7 +253,7 @@ namespace Phumla_Kamnandi.Data
 
         private void Create_INSERT_Command(Booking booking)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT into Bookings (BookingID, GuestID, RoomNo, Date, Price, status) VALUES (@BookingID, @GuestID, @RoomNo, @Date, @Price, @status)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT into Bookings (BookingID, GuestID, RoomNo, Date, Price, depositPaid) VALUES (@BookingID, @GuestID, @RoomNo, @Date, @Price, @depositPaid)", cnMain);
 
             Build_INSERT_Parameters(booking);
         }
@@ -309,11 +309,15 @@ namespace Phumla_Kamnandi.Data
             param = new SqlParameter("@Price", SqlDbType.Money, 8, "Price");
             param.SourceVersion = DataRowVersion.Current;
             daMain.UpdateCommand.Parameters.Add(param);
+
+            param = new SqlParameter("@depositPaid", SqlDbType.Money, 8, "depositPaid");
+            param.SourceVersion = DataRowVersion.Current;
+            daMain.UpdateCommand.Parameters.Add(param);
         }
 
         private void Create_UPDATE_Command(Booking booking)
         {
-            daMain.UpdateCommand = new SqlCommand("UPDATE Bookings SET ID =@ID,GuestID =@GuestID, RoomNo = @RoomNo, Date =@Date, Price =@Price " + "WHERE ID = @ID", cnMain);
+            daMain.UpdateCommand = new SqlCommand("UPDATE Bookings SET ID =@ID,GuestID =@GuestID, RoomNo = @RoomNo, Date =@Date, Price =@Price, depositPaid =@depositPaid " + "WHERE BookingID = @BookingID", cnMain);
 
             Build_UPDATE_Parameters(booking);
         }
@@ -341,14 +345,14 @@ namespace Phumla_Kamnandi.Data
             param.SourceVersion = DataRowVersion.Current;
             daMain.DeleteCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@status", SqlDbType.Money, 8, "status");
+            param = new SqlParameter("@depositPaid", SqlDbType.Money, 8, "depositPaid");
             param.SourceVersion = DataRowVersion.Current;
             daMain.DeleteCommand.Parameters.Add(param);
         }
 
         private void Create_DELETE_Command(Booking booking)
-        {                               //NOT SURE IF THIS IS RIGHT
-            daMain.DeleteCommand = new SqlCommand("DELETE Booking SET BookingID =@BookingID,GuestID =@GuestID, RoomNo = @RoomNo, Date =@Date, Price =@Price, status =@status " + "WHERE ID = @ID", cnMain);
+        {                               
+            daMain.DeleteCommand = new SqlCommand("DELETE Booking SET BookingID =@BookingID,GuestID =@GuestID, RoomNo = @RoomNo, Date =@Date, Price =@Price, depositPaid =@depositPaid " + "WHERE BookingID = @BookingID", cnMain);
 
             Build_DELETE_Parameters(booking);
         }

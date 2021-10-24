@@ -31,15 +31,15 @@ namespace Phumla_Kamnandi.Presentation
         #endregion
 
         #region Utility Methods
-        private void ShowAll(bool value)
+        private void ShowAll()
         {
-            iDTextBox.Visible = value;
-            guestIDTextBox.Visible = value;
-            pickDateTimePicker.Visible = value;
+            iDTextBox.Visible = true;
+            guestIDTextBox.Visible = true;
+            pickDateTimePicker.Visible = true;
 
-            IDLabel.Visible = value;
-            guestIDLabel.Visible = value;
-            dateLabel.Visible = value;
+            IDLabel.Visible = true;
+            guestIDLabel.Visible = true;
+            dateLabel.Visible = true;
         }
 
         private void ClearAll()
@@ -64,12 +64,12 @@ namespace Phumla_Kamnandi.Presentation
         #region Form events
         private void CreateBookingListingForm_Load(object sender, EventArgs e)
         {
-            ShowAll(false);
+            ShowAll();
         }
 
         private void CreateBookingListingForm_Activated(object sender, EventArgs e)
         {
-            ShowAll(false);
+            ShowAll();
         }
 
         private void CreateBookingListingForm_FormClosed(object sender, EventArgs e)
@@ -83,13 +83,14 @@ namespace Phumla_Kamnandi.Presentation
             bookingController.DataMaintenance(booking, Data.DB.DBOperation.Add);
             bookingController.FinalizeChanges(booking);
             ClearAll();
-            ShowAll(false);
+            ShowAll();
         }
         #endregion
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            //forgot the code tbh
+            createFormClosed = true;
+            this.Close();
         }
     }
 }
