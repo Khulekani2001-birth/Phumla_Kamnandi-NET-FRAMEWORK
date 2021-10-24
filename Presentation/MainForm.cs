@@ -100,28 +100,28 @@ namespace Phumla_Kamnandi.Presentation
         {
             bookingListingForm = new BookingListingForm(bookingController);
             bookingListingForm.StartPosition = FormStartPosition.CenterParent;
-           
+            this.Hide();
         }
 
         private void CreateCancelBookingListingForm()
         {
             cancelBookingForm = new CancelBookingForm(bookingController);
             cancelBookingForm.StartPosition = FormStartPosition.CenterParent;
-            
+            this.Hide();
         }
 
         private void CreateChangeBookingListingForm()
         {
             changeBookingForm = new ChangeBookingForm(bookingController);
             changeBookingForm.StartPosition = FormStartPosition.CenterParent;
-           
+            this.Hide();
         }
         
         private void CreateCreateBookingListingForm()
         {
             createBookingForm = new CreateBookingForm(bookingController);
             createBookingForm.StartPosition = FormStartPosition.CenterParent;
-            
+            this.Hide();
         }
         #endregion
 
