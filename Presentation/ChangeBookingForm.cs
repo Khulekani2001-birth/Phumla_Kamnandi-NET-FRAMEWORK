@@ -66,11 +66,19 @@ namespace Phumla_Kamnandi.Presentation
             roomNoTextBox.Enabled = false; //cant set
         }
 
+        private void populateTextBoxes(Booking booking)
+        {
+            IDTextBox.Text = booking.ID;
+            roomNoTextBox.Text = booking.RoomNo.ToString();
+            priceTextBox.Text = booking.Price.ToString();
+            guestIDTextBox.Text = booking.GuestID.ToString();
+
+        }
         private void PopulateObject()
         {
             booking.ID = IDTextBox.Text;
-            booking.GuestID = guestIDTextBox.Text;
-            booking.Deposit = false;  //???
+            //booking.GuestID = guestIDTextBox.Text;
+            booking.Deposit = Convert.ToBoolean(depositTextBox.Text);
             booking.RoomNo = 0;
             booking.Date = changeDateTimePicker.Value;
             booking.Price = booking.calculatePrice(changeDateTimePicker.Value);
@@ -148,6 +156,7 @@ namespace Phumla_Kamnandi.Presentation
             {
                 booking = bookingController.Find(changeBookingListView.SelectedItems[0].Text);
             }
+            populateTextBoxes(booking);
         }
 
         #endregion
@@ -168,15 +177,15 @@ namespace Phumla_Kamnandi.Presentation
         {
             PopulateObject();
             bookingController.DataMaintenance(booking, Data.DB.DBOperation.Edit);
+            MessageBox.Show("Booking To be changed!");
             bookingController.FinalizeChanges(booking);
             ClearAll();
-
             ShowAll(true);
             EnableEntries(true);
             setUpChangeBookingListingForm();
         }
+
         #endregion
 
-       
     }
 }

@@ -76,6 +76,14 @@ namespace Phumla_Kamnandi.Presentation
         {
             createFormClosed = true;
         }
+
+        private void CreateBookingForm_Load(object sender, EventArgs e)
+        {
+            ShowAll();
+        }
+        #endregion
+
+        #region Buttons
         private void enterButton_Click(object sender, EventArgs e)
         {
             PopulateObject();
@@ -90,12 +98,8 @@ namespace Phumla_Kamnandi.Presentation
             createFormClosed = true;
             this.Close();
         }
-        
 
-        private void CreateBookingForm_Load(object sender, EventArgs e)
-        {
-            ShowAll();
-        }
         #endregion
+    
     }
 }

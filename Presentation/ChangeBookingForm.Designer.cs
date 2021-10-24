@@ -112,6 +112,8 @@ namespace Phumla_Kamnandi.Presentation
             // 
             // changeDateTimePicker
             // 
+            this.changeDateTimePicker.CustomFormat = "";
+            this.changeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.changeDateTimePicker.Location = new System.Drawing.Point(428, 307);
             this.changeDateTimePicker.Name = "changeDateTimePicker";
             this.changeDateTimePicker.Size = new System.Drawing.Size(200, 20);

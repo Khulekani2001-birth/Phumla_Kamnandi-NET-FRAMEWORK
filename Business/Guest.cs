@@ -11,15 +11,17 @@ namespace Phumla_Kamnandi.Business
 		private String name;
 		private String surname;
 		private String address;
+		private string phone;
 		#endregion
 
 		#region Constructor
-		public Guest(String ID, String name, String surname, String address)
+		public Guest(String ID, String name, String surname, String address, string phone)
 		{
 			this.id = ID;
 			this.name = name;
 			this.surname = surname;
 			this.address = address;
+			this.phone = phone;
 		}
 
 		public Guest()
@@ -29,9 +31,10 @@ namespace Phumla_Kamnandi.Business
 			this.surname = "";
 			this.address = "";
 		}
-		#endregion
+        #endregion
 
-		public String ID
+        #region Property methods
+        public String ID
 		{
 			get { return id; }
 			set { id = value; }
@@ -54,13 +57,22 @@ namespace Phumla_Kamnandi.Business
 			get { return address; }
 			set { address = value; }
 		}
+       
 
+		public string Phone
+        {
+            get { return phone; }
+            set { phone = value; }
+        }
+		#endregion
+
+		#region Tostring
 		public override String ToString()
 		{
-			return "Guest ID: " + ID + "\nName and Surname: " + name + " " + surname + "\nAddress: " + address;
+			return "Guest ID: " + ID + "\nName and Surname: " + name + " " + surname + "\nAddress: " + address + "\nPhone: " + phone ;
 		}
 
+        #endregion
 
-
-	}
+    }
 }

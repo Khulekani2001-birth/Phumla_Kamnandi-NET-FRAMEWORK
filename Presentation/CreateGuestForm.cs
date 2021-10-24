@@ -34,11 +34,13 @@ namespace Phumla_Kamnandi.Presentation
             nameTextBox.Visible = value;
             surnameTextBox.Visible = value;
             iDTextBox.Visible = value;
+            PhoneTextBox.Visible = value;
 
             iDLabel.Visible = value;
             nameLabel.Visible = value;
             surnameLabel.Visible = value;
             addressLabel.Visible = value;
+            PhoneLabel.Visible = value;
         }
 
         private void ClearAll()
@@ -47,6 +49,7 @@ namespace Phumla_Kamnandi.Presentation
             nameTextBox.Text = "";
             surnameTextBox.Text = "";
             iDTextBox.Text = "";
+            PhoneTextBox.Text = "";
         }
 
         private void PopulateObject()
@@ -56,6 +59,7 @@ namespace Phumla_Kamnandi.Presentation
             guest.Name = nameTextBox.Text;
             guest.Surname = surnameTextBox.Text;
             guest.Address = iDTextBox.Text;
+            guest.Phone = PhoneTextBox.Text;
         }
         #endregion
 
