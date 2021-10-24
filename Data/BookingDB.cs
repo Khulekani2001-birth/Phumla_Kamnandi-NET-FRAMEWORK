@@ -207,16 +207,15 @@ namespace Phumla_Kamnandi.Data
         #region Build Parameters, Create Commands & Update database
         private void Build_INSERT_Parameters(Booking booking)
         {
-            //WE'LL HAVE TO ADJUST ACCORDING TO DATABASE
             SqlParameter param = default(SqlParameter);
 
-            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 15, "BookingID");
+            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 50, "BookingID");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 10, "GuestID");
+            param = new SqlParameter("@GuestID", SqlDbType.TinyInt, 10, "GuestID");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@RoomNo", SqlDbType.TinyInt, 100, "RoomNo");
+            param = new SqlParameter("@RoomNo", SqlDbType.TinyInt, 10, "RoomNo");
             daMain.InsertCommand.Parameters.Add(param);
 
             param = new SqlParameter("@Date", SqlDbType.Date, 15, "Date");
@@ -231,7 +230,6 @@ namespace Phumla_Kamnandi.Data
 
         private void Build_INSERT_Parameters(Guest guest)
         {
-            //WE'LL HAVE TO ADJUST ACCORDING TO DATABASE
             SqlParameter param = default(SqlParameter);
 
             param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 15, "GuestID");
@@ -246,6 +244,8 @@ namespace Phumla_Kamnandi.Data
             param = new SqlParameter("@Address", SqlDbType.NVarChar, 15, "Address");
             daMain.InsertCommand.Parameters.Add(param);
 
+            param = new SqlParameter("@Phone", SqlDbType.NVarChar, 15, "Phone");
+            daMain.InsertCommand.Parameters.Add(param);
         }
 
         private void Create_INSERT_Command(Booking booking)
@@ -256,7 +256,7 @@ namespace Phumla_Kamnandi.Data
         }
         private void Create_INSERT_Command(Guest guest)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT into Guests (GuestID, Name, Surname, Address) VALUES (@GuestID, @Name, @Surname, @Address)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT into Guests (GuestID, Name, Surname, Address, Phone) VALUES (@GuestID, @Name, @Surname, @Address, @Phone)", cnMain);
 
             Build_INSERT_Parameters(guest);
         }
@@ -276,8 +276,6 @@ namespace Phumla_Kamnandi.Data
         {
             bool success = true;
             Create_INSERT_Command(guest);
-            //Create_UPDATE_Command(booking);
-            //Create_DELETE_Command(booking);
 
             success = UpdateDataSource(sqlLocal2, table2);
 
