@@ -220,22 +220,22 @@ namespace Phumla_Kamnandi.Data
         {
             SqlParameter param = default(SqlParameter);
 
-            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 15, booking.ID);
+            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 50, "BookingID");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@GuestID", SqlDbType.TinyInt, 10, booking.GuestID);
+            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 20, "GuestID");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@RoomNo", SqlDbType.TinyInt, 10, Convert.ToString(booking.RoomNo));
+            param = new SqlParameter("@RoomNo", SqlDbType.Int, 10, "RoomNo");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Date", SqlDbType.Date, 15, Convert.ToString(booking.Date));
+            param = new SqlParameter("@Date", SqlDbType.Date, 15, "Date");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Price", SqlDbType.Decimal, 1, Convert.ToString(booking.Price));
+            param = new SqlParameter("@Price", SqlDbType.Money, 8,"Price");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@depositPaid", SqlDbType.NVarChar, 10, Convert.ToString(booking.Deposit));
+            param = new SqlParameter("@depositPaid", SqlDbType.NVarChar, 10, "depositPaid");
             daMain.InsertCommand.Parameters.Add(param);
         }
 
@@ -243,31 +243,31 @@ namespace Phumla_Kamnandi.Data
         {
             SqlParameter param = default(SqlParameter);
 
-            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 15, guest.ID);
+            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 20, "GuestID");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Name", SqlDbType.NVarChar, 10, guest.Name);
+            param = new SqlParameter("@Name", SqlDbType.NVarChar, 50, "Name");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Surname", SqlDbType.NVarChar, 100, guest.Surname);
+            param = new SqlParameter("@Surname", SqlDbType.NVarChar, 50, "Surname");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Address", SqlDbType.NVarChar, 15, guest.Address);
+            param = new SqlParameter("@Address", SqlDbType.NVarChar, 70, "Address");
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Phone", SqlDbType.NVarChar, 15, guest.Phone);
+            param = new SqlParameter("@Phone", SqlDbType.NVarChar, 50, "Phone");
             daMain.InsertCommand.Parameters.Add(param);
         }
 
         private void Create_INSERT_Command(Booking booking)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT INTO Bookings ('"+ booking.ID.ToString() +"', '"+ Convert.ToInt32(booking.GuestID) +"', '"+ Convert.ToInt32(booking.RoomNo) +"', '" + booking.Date + "', '" + booking.Price.ToString() + "', '" + booking.Deposit.ToString() + "') VALUES (@BookingID, @GuestID, @RoomNo, @Date, @Price, @depositPaid)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT INTO Bookings (BookingID, GuestID, RoomNo, Date, Price, depositPaid) VALUES (@BookingID, @GuestID, @RoomNo, @Date, @Price, @depositPaid)", cnMain);
 
             Build_INSERT_Parameters(booking);
         }
         private void Create_INSERT_Command(Guest guest)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT into Guests ('"+guest.ID+"','"+ guest.Name+"','"+ guest.Surname+"','"+ guest.Address+"','"+ guest.Phone+"') VALUES (@GuestID, @Name, @Surname, @Address, @Phone)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT into Guests (GuestID, Name, Surname, Address, Phone) VALUES (@GuestID, @Name, @Surname, @Address, @Phone)", cnMain);
 
             Build_INSERT_Parameters(guest);
         }
@@ -296,19 +296,19 @@ namespace Phumla_Kamnandi.Data
         private void Build_UPDATE_Parameters(Booking booking)
         {
             SqlParameter param = default(SqlParameter);
-            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 100, "ID");
+            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 50, "BookingID");
             param.SourceVersion = DataRowVersion.Current;
             daMain.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 15, "GuestID");
+            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 20, "GuestID");
             param.SourceVersion = DataRowVersion.Current;
             daMain.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@RoomNo", SqlDbType.TinyInt, 1, "RoomNo");
+            param = new SqlParameter("@RoomNo", SqlDbType.Int, 10, "RoomNo");
             param.SourceVersion = DataRowVersion.Current;
             daMain.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Date", SqlDbType.NVarChar, 15, "Date");
+            param = new SqlParameter("@Date", SqlDbType.Date, 15, "Date");
             param.SourceVersion = DataRowVersion.Current;
             daMain.UpdateCommand.Parameters.Add(param);
 
@@ -316,14 +316,14 @@ namespace Phumla_Kamnandi.Data
             param.SourceVersion = DataRowVersion.Current;
             daMain.UpdateCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@depositPaid", SqlDbType.Money, 8, "depositPaid");
+            param = new SqlParameter("@depositPaid", SqlDbType.NVarChar, 10, "depositPaid");
             param.SourceVersion = DataRowVersion.Current;
             daMain.UpdateCommand.Parameters.Add(param);
         }
 
         private void Create_UPDATE_Command(Booking booking)
         {
-            daMain.UpdateCommand = new SqlCommand("UPDATE Bookings SET ID =@BookingID, GuestID =@GuestID, RoomNo = @RoomNo, Date =@Date, Price =@Price, depositPaid =@depositPaid " + "WHERE ID = @BookingID", cnMain);
+            daMain.UpdateCommand = new SqlCommand("UPDATE Bookings SET BookingID =@BookingID, GuestID =@GuestID, RoomNo = @RoomNo, Date =@Date, Price =@Price, depositPaid =@depositPaid " + "WHERE BookingID = @BookingID", cnMain);
 
             Build_UPDATE_Parameters(booking);
         }
@@ -331,19 +331,19 @@ namespace Phumla_Kamnandi.Data
         private void Build_DELETE_Parameters(Booking booking)
         {
             SqlParameter param = default(SqlParameter);
-            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 100, "BookingID");
+            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 50, "BookingID");
             param.SourceVersion = DataRowVersion.Current;
             daMain.DeleteCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 15, "GuestID");
+            param = new SqlParameter("@GuestID", SqlDbType.NVarChar, 20, "GuestID");
             param.SourceVersion = DataRowVersion.Original;
             daMain.DeleteCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@RoomNo", SqlDbType.NVarChar, 15, "RoomNo");
+            param = new SqlParameter("@RoomNo", SqlDbType.Int, 10, "RoomNo");
             param.SourceVersion = DataRowVersion.Current;
             daMain.DeleteCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Date", SqlDbType.TinyInt, 1, "Date");
+            param = new SqlParameter("@Date", SqlDbType.Date, 15, "Date");
             param.SourceVersion = DataRowVersion.Current;
             daMain.DeleteCommand.Parameters.Add(param);
 

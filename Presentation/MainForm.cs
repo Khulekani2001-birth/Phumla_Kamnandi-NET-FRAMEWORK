@@ -18,8 +18,9 @@ namespace Phumla_Kamnandi.Presentation
         CancelBookingForm cancelBookingForm;
         BookingListingForm bookingListingForm;
         CreateBookingForm createBookingForm;
-        //CreateGuestForm createGuestForm;
+        CreateGuestForm createGuestForm;
         BookingController bookingController;
+        GuestController guestController;
         #endregion
 
         #region Constructor
@@ -93,6 +94,21 @@ namespace Phumla_Kamnandi.Presentation
 
             createBookingForm.Show();
         }
+
+        private void newGuestButton_Click(object sender, EventArgs e)
+        {
+            if (createGuestForm == null || createGuestForm.IsDisposed)
+            {
+                CreateCreateGuestForm();
+            }
+            if (createGuestForm.createFormClosed)
+            {
+                CreateCreateGuestForm();
+            }
+
+            createGuestForm.Show(); 
+        }
+    
         #endregion
 
         #region Child Forms
@@ -123,7 +139,14 @@ namespace Phumla_Kamnandi.Presentation
             createBookingForm.StartPosition = FormStartPosition.CenterParent;
             //this.Hide();
         }
+
+        private void CreateCreateGuestForm()
+        {
+            createGuestForm = new CreateGuestForm(guestController);
+            createGuestForm.StartPosition = FormStartPosition.CenterParent;
+        }
         #endregion
 
+       
     }
 }

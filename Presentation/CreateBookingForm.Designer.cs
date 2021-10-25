@@ -77,7 +77,7 @@ namespace Phumla_Kamnandi.Presentation
             this.pickDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.pickDateTimePicker.Location = new System.Drawing.Point(496, 65);
             this.pickDateTimePicker.Name = "pickDateTimePicker";
-            this.pickDateTimePicker.Size = new System.Drawing.Size(128, 20);
+            this.pickDateTimePicker.Size = new System.Drawing.Size(103, 20);
             this.pickDateTimePicker.TabIndex = 7;
             // 
             // dateLabel

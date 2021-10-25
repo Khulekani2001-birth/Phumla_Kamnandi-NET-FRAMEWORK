@@ -33,6 +33,7 @@ namespace Phumla_Kamnandi.Presentation
             this.cancelBookingButton = new System.Windows.Forms.Button();
             this.listBookingsButton = new System.Windows.Forms.Button();
             this.newBookingButton = new System.Windows.Forms.Button();
+            this.newGuestButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // changeBookingButton
@@ -75,11 +76,22 @@ namespace Phumla_Kamnandi.Presentation
             this.newBookingButton.UseVisualStyleBackColor = true;
             this.newBookingButton.Click += new System.EventHandler(this.newBookingButton_Click);
             // 
+            // newGuestButton
+            // 
+            this.newGuestButton.Location = new System.Drawing.Point(647, 282);
+            this.newGuestButton.Name = "newGuestButton";
+            this.newGuestButton.Size = new System.Drawing.Size(75, 23);
+            this.newGuestButton.TabIndex = 4;
+            this.newGuestButton.Text = "New Guest";
+            this.newGuestButton.UseVisualStyleBackColor = true;
+            this.newGuestButton.Click += new System.EventHandler(this.newGuestButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.newGuestButton);
             this.Controls.Add(this.newBookingButton);
             this.Controls.Add(this.listBookingsButton);
             this.Controls.Add(this.cancelBookingButton);
@@ -96,5 +108,6 @@ namespace Phumla_Kamnandi.Presentation
         private System.Windows.Forms.Button cancelBookingButton;
         private System.Windows.Forms.Button listBookingsButton;
         private System.Windows.Forms.Button newBookingButton;
+        private System.Windows.Forms.Button newGuestButton;
     }
 }

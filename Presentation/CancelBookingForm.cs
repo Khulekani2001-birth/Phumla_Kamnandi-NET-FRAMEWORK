@@ -39,7 +39,7 @@ namespace Phumla_Kamnandi.Presentation
         {
             IDTextBox.Text = booking.ID;
             guestIDTextBox.Text = booking.GuestID;
-            depositTextBox.Text = booking.Deposit.ToString();
+            depositComboBox.Text = booking.Deposit.ToString();
             roomNoTextBox.Text = booking.RoomNo.ToString();
             dateTextBox.Text = booking.Date.ToString();
             priceTextBox.Text = booking.Price.ToString();
@@ -56,7 +56,7 @@ namespace Phumla_Kamnandi.Presentation
 
             IDTextBox.Visible = value;
             guestIDTextBox.Visible = value;
-            depositTextBox.Visible = value;
+            depositComboBox.Visible = value;
             roomNoTextBox.Visible = value;
             dateTextBox.Visible = value;
             priceTextBox.Visible = value;
@@ -71,7 +71,7 @@ namespace Phumla_Kamnandi.Presentation
         {
             IDTextBox.Enabled = false;
             guestIDTextBox.Enabled = false;
-            depositTextBox.Enabled = false;
+            depositComboBox.Enabled = false;
             priceTextBox.Enabled = false;
             dateTextBox.Enabled = false;
             roomNoTextBox.Enabled = false;
@@ -155,9 +155,6 @@ namespace Phumla_Kamnandi.Presentation
         {
             cancelListFormClosed = true;
             this.Close();
-
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
         }
         #endregion
 
