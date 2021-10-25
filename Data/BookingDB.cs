@@ -73,6 +73,8 @@ namespace Phumla_Kamnandi.Data
                         guest.Name = Convert.ToString(myRow["Name"]).TrimEnd();
                         guest.Surname = Convert.ToString(myRow["Surname"]).TrimEnd();
                         guest.Address = Convert.ToString(myRow["Address"]).TrimEnd();
+                        guest.Phone = Convert.ToString(myRow["Phone"]).TrimEnd();
+
                     }
                     guests.Add(guest);
                 }
@@ -126,6 +128,7 @@ namespace Phumla_Kamnandi.Data
             aRow["Name"] = guest.Name;
             aRow["Address"] = guest.Address;
             aRow["Surname"] = guest.Surname;
+            aRow["Phone"] = guest.Phone;
         }
 
         private int FindRow(Booking booking, String table)
@@ -252,19 +255,19 @@ namespace Phumla_Kamnandi.Data
             param = new SqlParameter("@Address", SqlDbType.NVarChar, 15, guest.Address);
             daMain.InsertCommand.Parameters.Add(param);
 
-            param = new SqlParameter("@Phone", SqlDbType.NVarChar, 15, "Phone");
+            param = new SqlParameter("@Phone", SqlDbType.NVarChar, 15, guest.Phone);
             daMain.InsertCommand.Parameters.Add(param);
         }
 
         private void Create_INSERT_Command(Booking booking)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT INTO Bookings (BookingID, GuestID, RoomNo, Date, Price, depositPaid) VALUES (" + booking.ID.ToString() + ", " + Convert.ToInt32(booking.GuestID) + ", " + Convert.ToInt32(booking.RoomNo) + ", " + booking.Date + ", " + booking.Price.ToString() + ", " + booking.Deposit.ToString() + ")", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT INTO Bookings ("+ booking.ID.ToString() +", "+ Convert.ToInt32(booking.GuestID) +", "+ Convert.ToInt32(booking.RoomNo) +", " + booking.Date + ", " + booking.Price.ToString() + ", " + booking.Deposit.ToString() + ") VALUES (@BookingID, @GuestID, @RoomNo, @Date, @Price, @depositPaid)", cnMain);
 
             Build_INSERT_Parameters(booking);
         }
         private void Create_INSERT_Command(Guest guest)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT into Guests ("+guest.ID+","+ guest.Name+","+ guest.Surname+","+ guest.Address+") VALUES (@GuestID, @Name, @Surname, @Address)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT into Guests ("+guest.ID+","+ guest.Name+","+ guest.Surname+","+ guest.Address+","+ guest.Phone+") VALUES (@GuestID, @Name, @Surname, @Address, @Phone)", cnMain);
 
             Build_INSERT_Parameters(guest);
         }
