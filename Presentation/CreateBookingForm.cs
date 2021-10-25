@@ -97,6 +97,9 @@ namespace Phumla_Kamnandi.Presentation
         {
             createFormClosed = true;
             this.Close();
+
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
         }
 
         #endregion

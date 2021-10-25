@@ -156,6 +156,9 @@ namespace Phumla_Kamnandi.Presentation
         {
             bookingListFormClosed = true;
             this.Close();
+
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
         }
         #endregion
 

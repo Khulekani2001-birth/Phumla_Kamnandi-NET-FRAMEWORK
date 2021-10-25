@@ -171,6 +171,9 @@ namespace Phumla_Kamnandi.Presentation
         {
             changeListFormClosed = true;
             this.Close();
+
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
         }
 
         private void changeBookingButton_Click(object sender, EventArgs e)
