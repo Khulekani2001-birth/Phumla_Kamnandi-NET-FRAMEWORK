@@ -65,14 +65,7 @@ namespace Phumla_Kamnandi.Presentation
         #endregion
 
         #region Form events
-
-        
-        private void exitButton_Click(object sender, EventArgs e)
-        {
-            createFormClosed = true;
-            this.Close();
-        }
-
+ 
         private void CreateGuestForm_Load(object sender, EventArgs e)
         {
             ShowAll(false);
@@ -83,8 +76,6 @@ namespace Phumla_Kamnandi.Presentation
             ShowAll(false);
         }
 
-        #endregion
-
         private void enterButton_Click(object sender, EventArgs e)
         {
             PopulateObject();
@@ -94,6 +85,14 @@ namespace Phumla_Kamnandi.Presentation
             ClearAll();
             ShowAll(false);
         }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            createFormClosed = true;
+            this.Close();
+        }
+
+        #endregion
     }
 }
     

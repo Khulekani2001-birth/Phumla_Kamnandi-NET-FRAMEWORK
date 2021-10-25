@@ -124,7 +124,7 @@ namespace Phumla_Kamnandi.Data
 
         private void FillRow(DataRow aRow, Guest guest, DB.DBOperation operation)
         {
-            aRow["ID"] = guest.ID;
+            aRow["GuestID"] = guest.ID;
             aRow["Name"] = guest.Name;
             aRow["Address"] = guest.Address;
             aRow["Surname"] = guest.Surname;
