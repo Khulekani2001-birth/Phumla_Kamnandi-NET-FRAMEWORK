@@ -61,13 +61,13 @@ namespace Phumla_Kamnandi.Business
             switch (bookDate.Date.Day)
             {
                 case int n when (n <= 7):
-                    price = 550;
+                    price = 605;
                     break;
                 case int n when (n >= 8 && n <= 15):
-                    price = 750;
+                    price = 825;
                     break;
                 case int n when (n > 15):
-                    price = 995;
+                    price = 1094.5m;
                     break;
             }
             return price;
