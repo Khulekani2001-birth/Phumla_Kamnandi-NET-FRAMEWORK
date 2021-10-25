@@ -29,6 +29,7 @@ namespace Phumla_Kamnandi.Presentation
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             bookingController = new BookingController();
+            guestController = new GuestController();
         }
         #endregion
 

@@ -115,6 +115,7 @@ namespace Phumla_Kamnandi.Presentation
             this.enterButton.TabIndex = 9;
             this.enterButton.Text = "Add guest";
             this.enterButton.UseVisualStyleBackColor = true;
+            this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
             // 
             // exitButton
             // 
@@ -124,7 +125,6 @@ namespace Phumla_Kamnandi.Presentation
             this.exitButton.TabIndex = 10;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // PhoneLabel
             // 

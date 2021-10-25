@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Phumla_Kamnandi.Business;
+using Phumla_Kamnandi.Data;
 
 namespace Phumla_Kamnandi.Presentation
 {
@@ -64,16 +65,8 @@ namespace Phumla_Kamnandi.Presentation
         #endregion
 
         #region Form events
-        private void enterButton_Click(object sender, EventArgs e)
-        {
-            PopulateObject();
-            MessageBox.Show("To be submitted to the Database!");
-            guestController.DataMaintenance(guest, Data.DB.DBOperation.Add);
-            guestController.FinalizeChanges(guest);
-            ClearAll();
-            ShowAll(false);
-        }
 
+        
         private void exitButton_Click(object sender, EventArgs e)
         {
             createFormClosed = true;
@@ -89,6 +82,18 @@ namespace Phumla_Kamnandi.Presentation
         {
             ShowAll(false);
         }
+
         #endregion
+
+        private void enterButton_Click(object sender, EventArgs e)
+        {
+            PopulateObject();
+            MessageBox.Show("To be submitted to the Database!");
+            guestController.DataMaintenance(guest, DB.DBOperation.Add);
+            guestController.FinalizeChanges(guest);
+            ClearAll();
+            ShowAll(false);
+        }
     }
 }
+    
