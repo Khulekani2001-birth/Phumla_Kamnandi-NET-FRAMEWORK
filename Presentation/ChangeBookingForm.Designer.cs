@@ -45,12 +45,13 @@ namespace Phumla_Kamnandi.Presentation
             this.guestIDLabel = new System.Windows.Forms.Label();
             this.despositComboBox = new System.Windows.Forms.ComboBox();
             this.editButton = new System.Windows.Forms.Button();
+            this.promptLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // changeBookingListView
             // 
             this.changeBookingListView.HideSelection = false;
-            this.changeBookingListView.Location = new System.Drawing.Point(12, 12);
+            this.changeBookingListView.Location = new System.Drawing.Point(12, 82);
             this.changeBookingListView.Name = "changeBookingListView";
             this.changeBookingListView.Size = new System.Drawing.Size(776, 203);
             this.changeBookingListView.TabIndex = 0;
@@ -59,37 +60,38 @@ namespace Phumla_Kamnandi.Presentation
             // 
             // IDTextBox
             // 
-            this.IDTextBox.Location = new System.Drawing.Point(166, 247);
+            this.IDTextBox.Location = new System.Drawing.Point(166, 291);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(100, 20);
             this.IDTextBox.TabIndex = 1;
             // 
             // priceTextBox
             // 
-            this.priceTextBox.Location = new System.Drawing.Point(467, 371);
+            this.priceTextBox.Location = new System.Drawing.Point(467, 393);
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.Size = new System.Drawing.Size(100, 20);
             this.priceTextBox.TabIndex = 2;
             // 
             // roomNoTextBox
             // 
-            this.roomNoTextBox.Location = new System.Drawing.Point(467, 247);
+            this.roomNoTextBox.Location = new System.Drawing.Point(467, 291);
             this.roomNoTextBox.Name = "roomNoTextBox";
             this.roomNoTextBox.Size = new System.Drawing.Size(100, 20);
             this.roomNoTextBox.TabIndex = 4;
             // 
             // guestIDTextBox
             // 
-            this.guestIDTextBox.Location = new System.Drawing.Point(166, 307);
+            this.guestIDTextBox.Location = new System.Drawing.Point(166, 345);
             this.guestIDTextBox.Name = "guestIDTextBox";
             this.guestIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.guestIDTextBox.TabIndex = 6;
             // 
             // changeBookingButton
             // 
-            this.changeBookingButton.Location = new System.Drawing.Point(596, 392);
+            this.changeBookingButton.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeBookingButton.Location = new System.Drawing.Point(613, 341);
             this.changeBookingButton.Name = "changeBookingButton";
-            this.changeBookingButton.Size = new System.Drawing.Size(175, 23);
+            this.changeBookingButton.Size = new System.Drawing.Size(175, 43);
             this.changeBookingButton.TabIndex = 7;
             this.changeBookingButton.Text = "Make changes to booking";
             this.changeBookingButton.UseVisualStyleBackColor = true;
@@ -97,9 +99,10 @@ namespace Phumla_Kamnandi.Presentation
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(696, 345);
+            this.exitButton.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Location = new System.Drawing.Point(699, 393);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.Size = new System.Drawing.Size(75, 54);
             this.exitButton.TabIndex = 10;
             this.exitButton.Text = "Exit";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -109,7 +112,7 @@ namespace Phumla_Kamnandi.Presentation
             // 
             this.changeDateTimePicker.CustomFormat = "";
             this.changeDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.changeDateTimePicker.Location = new System.Drawing.Point(467, 307);
+            this.changeDateTimePicker.Location = new System.Drawing.Point(467, 341);
             this.changeDateTimePicker.Name = "changeDateTimePicker";
             this.changeDateTimePicker.Size = new System.Drawing.Size(100, 20);
             this.changeDateTimePicker.TabIndex = 11;
@@ -117,54 +120,60 @@ namespace Phumla_Kamnandi.Presentation
             // IDLabel
             // 
             this.IDLabel.AutoSize = true;
-            this.IDLabel.Location = new System.Drawing.Point(58, 250);
+            this.IDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IDLabel.Location = new System.Drawing.Point(58, 298);
             this.IDLabel.Name = "IDLabel";
-            this.IDLabel.Size = new System.Drawing.Size(60, 13);
+            this.IDLabel.Size = new System.Drawing.Size(88, 20);
             this.IDLabel.TabIndex = 12;
             this.IDLabel.Text = "Booking ID";
             // 
             // priceLabel
             // 
             this.priceLabel.AutoSize = true;
-            this.priceLabel.Location = new System.Drawing.Point(363, 374);
+            this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceLabel.Location = new System.Drawing.Point(350, 393);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(31, 13);
+            this.priceLabel.Size = new System.Drawing.Size(44, 20);
             this.priceLabel.TabIndex = 13;
             this.priceLabel.Text = "Price";
             // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(363, 310);
+            this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.Location = new System.Drawing.Point(350, 343);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(30, 13);
+            this.dateLabel.Size = new System.Drawing.Size(44, 20);
             this.dateLabel.TabIndex = 14;
             this.dateLabel.Text = "Date";
             // 
             // roomNoLabel
             // 
             this.roomNoLabel.AutoSize = true;
-            this.roomNoLabel.Location = new System.Drawing.Point(363, 250);
+            this.roomNoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roomNoLabel.Location = new System.Drawing.Point(349, 291);
             this.roomNoLabel.Name = "roomNoLabel";
-            this.roomNoLabel.Size = new System.Drawing.Size(75, 13);
+            this.roomNoLabel.Size = new System.Drawing.Size(112, 20);
             this.roomNoLabel.TabIndex = 15;
             this.roomNoLabel.Text = "Room Number";
             // 
             // depositLabel
             // 
             this.depositLabel.AutoSize = true;
-            this.depositLabel.Location = new System.Drawing.Point(58, 374);
+            this.depositLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.depositLabel.Location = new System.Drawing.Point(58, 401);
             this.depositLabel.Name = "depositLabel";
-            this.depositLabel.Size = new System.Drawing.Size(66, 13);
+            this.depositLabel.Size = new System.Drawing.Size(98, 20);
             this.depositLabel.TabIndex = 16;
             this.depositLabel.Text = "Deposit paid";
             // 
             // guestIDLabel
             // 
             this.guestIDLabel.AutoSize = true;
-            this.guestIDLabel.Location = new System.Drawing.Point(58, 314);
+            this.guestIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guestIDLabel.Location = new System.Drawing.Point(58, 348);
             this.guestIDLabel.Name = "guestIDLabel";
-            this.guestIDLabel.Size = new System.Drawing.Size(49, 13);
+            this.guestIDLabel.Size = new System.Drawing.Size(74, 20);
             this.guestIDLabel.TabIndex = 17;
             this.guestIDLabel.Text = "Guest ID";
             // 
@@ -174,7 +183,7 @@ namespace Phumla_Kamnandi.Presentation
             this.despositComboBox.Items.AddRange(new object[] {
             "True",
             "False"});
-            this.despositComboBox.Location = new System.Drawing.Point(166, 366);
+            this.despositComboBox.Location = new System.Drawing.Point(166, 393);
             this.despositComboBox.Name = "despositComboBox";
             this.despositComboBox.Size = new System.Drawing.Size(100, 21);
             this.despositComboBox.TabIndex = 18;
@@ -183,12 +192,22 @@ namespace Phumla_Kamnandi.Presentation
             // 
             this.editButton.BackgroundImage = global::Phumla_Kamnandi.Properties.Resources.draw_edit_pen_pencil_text_write_icon_1320162307919760358;
             this.editButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.editButton.Location = new System.Drawing.Point(635, 239);
+            this.editButton.Location = new System.Drawing.Point(721, 291);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(40, 47);
             this.editButton.TabIndex = 19;
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // promptLabel
+            // 
+            this.promptLabel.AutoSize = true;
+            this.promptLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.promptLabel.Location = new System.Drawing.Point(130, 9);
+            this.promptLabel.Name = "promptLabel";
+            this.promptLabel.Size = new System.Drawing.Size(658, 64);
+            this.promptLabel.TabIndex = 20;
+            this.promptLabel.Text = "Enter new booking details";
             // 
             // ChangeBookingForm
             // 
@@ -196,6 +215,7 @@ namespace Phumla_Kamnandi.Presentation
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.promptLabel);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.despositComboBox);
             this.Controls.Add(this.guestIDLabel);
@@ -238,5 +258,6 @@ namespace Phumla_Kamnandi.Presentation
         private System.Windows.Forms.Label guestIDLabel;
         private System.Windows.Forms.ComboBox despositComboBox;
         private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Label promptLabel;
     }
 }
