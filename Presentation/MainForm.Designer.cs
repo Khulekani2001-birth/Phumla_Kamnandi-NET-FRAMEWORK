@@ -34,6 +34,7 @@ namespace Phumla_Kamnandi.Presentation
             this.listBookingsButton = new System.Windows.Forms.Button();
             this.newBookingButton = new System.Windows.Forms.Button();
             this.newGuestButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // changeBookingButton
@@ -86,12 +87,25 @@ namespace Phumla_Kamnandi.Presentation
             this.newGuestButton.UseVisualStyleBackColor = true;
             this.newGuestButton.Click += new System.EventHandler(this.newGuestButton_Click);
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Phumla_Kamnandi.Properties.Resources.Phumla_Kamnandi_Hotels;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.button1.Location = new System.Drawing.Point(6, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 67);
+            this.button1.TabIndex = 22;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.newGuestButton);
             this.Controls.Add(this.newBookingButton);
             this.Controls.Add(this.listBookingsButton);
@@ -110,5 +124,6 @@ namespace Phumla_Kamnandi.Presentation
         private System.Windows.Forms.Button listBookingsButton;
         private System.Windows.Forms.Button newBookingButton;
         private System.Windows.Forms.Button newGuestButton;
+        private System.Windows.Forms.Button button1;
     }
 }

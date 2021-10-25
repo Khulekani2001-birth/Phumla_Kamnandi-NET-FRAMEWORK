@@ -44,8 +44,9 @@ namespace Phumla_Kamnandi.Presentation
             this.depositLabel = new System.Windows.Forms.Label();
             this.guestIDLabel = new System.Windows.Forms.Label();
             this.despositComboBox = new System.Windows.Forms.ComboBox();
-            this.editButton = new System.Windows.Forms.Button();
             this.promptLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // changeBookingListView
@@ -188,6 +189,28 @@ namespace Phumla_Kamnandi.Presentation
             this.despositComboBox.Size = new System.Drawing.Size(100, 21);
             this.despositComboBox.TabIndex = 18;
             // 
+            // promptLabel
+            // 
+            this.promptLabel.AutoSize = true;
+            this.promptLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.promptLabel.Location = new System.Drawing.Point(142, 9);
+            this.promptLabel.Name = "promptLabel";
+            this.promptLabel.Size = new System.Drawing.Size(658, 64);
+            this.promptLabel.TabIndex = 20;
+            this.promptLabel.Text = "Enter new booking details";
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Phumla_Kamnandi.Properties.Resources.Phumla_Kamnandi_Hotels;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.DarkSeaGreen;
+            this.button1.Location = new System.Drawing.Point(12, 9);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 67);
+            this.button1.TabIndex = 21;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // editButton
             // 
             this.editButton.BackgroundImage = global::Phumla_Kamnandi.Properties.Resources.draw_edit_pen_pencil_text_write_icon_1320162307919760358;
@@ -199,22 +222,13 @@ namespace Phumla_Kamnandi.Presentation
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
-            // promptLabel
-            // 
-            this.promptLabel.AutoSize = true;
-            this.promptLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.promptLabel.Location = new System.Drawing.Point(130, 9);
-            this.promptLabel.Name = "promptLabel";
-            this.promptLabel.Size = new System.Drawing.Size(658, 64);
-            this.promptLabel.TabIndex = 20;
-            this.promptLabel.Text = "Enter new booking details";
-            // 
             // ChangeBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.promptLabel);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.despositComboBox);
@@ -259,5 +273,6 @@ namespace Phumla_Kamnandi.Presentation
         private System.Windows.Forms.ComboBox despositComboBox;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Label promptLabel;
+        private System.Windows.Forms.Button button1;
     }
 }
