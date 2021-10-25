@@ -27,7 +27,7 @@ namespace Phumla_Kamnandi.Presentation
         public MainForm()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Normal;
             bookingController = new BookingController();
             guestController = new GuestController();
         }
