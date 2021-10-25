@@ -11,7 +11,7 @@ namespace Phumla_Kamnandi.Business
 		private String name;
 		private String surname;
 		private String address;
-		private string phone;
+		private String phone;
 		#endregion
 
 		#region Constructor
