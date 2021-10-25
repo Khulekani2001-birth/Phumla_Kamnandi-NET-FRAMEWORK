@@ -37,13 +37,8 @@ namespace Phumla_Kamnandi.Business
         public void DataMaintenance(Guest aGuest, DB.DBOperation operation)
         {
             guestDB.DataSetChange(aGuest, operation);
-
-            switch (operation)
-            {
-                case DB.DBOperation.Add:
-                    guests.Add(aGuest);
-                    break;
-            }
+             guests.Add(aGuest);
+            
         }
 
         public bool FinalizeChanges(Guest guest)

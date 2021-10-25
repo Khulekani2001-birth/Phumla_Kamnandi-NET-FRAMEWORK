@@ -143,6 +143,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="PhumlaKamnandiDBDataSet.xsc">
       <DependentUpon>PhumlaKamnandiDBDataSet.xsd</DependentUpon>
@@ -177,6 +178,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>PhumlaKamnandiDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\draw+edit+pen+pencil+text+write+icon-1320162307919760358.png" />
+    <None Include="Resources\download.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

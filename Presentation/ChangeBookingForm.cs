@@ -27,7 +27,7 @@ namespace Phumla_Kamnandi.Presentation
             InitializeComponent();
             bookingController = bControlller;
             booking = new Booking();
-            this.Load += ChangeBookingListingForm_Load;
+            this.Load += ChangeBookingForm_Load;
             this.Activated += ChangeBookingListingForm_Activated;
             this.FormClosed += ChangeBookingListingForm_FormClosed;
         }
@@ -52,6 +52,7 @@ namespace Phumla_Kamnandi.Presentation
             priceTextBox.Visible = value;
 
             changeBookingButton.Visible = value;
+            editButton.Visible = value;
         }
 
         private void EnableEntries(bool value)
@@ -97,7 +98,7 @@ namespace Phumla_Kamnandi.Presentation
         #endregion
 
         #region Events
-        private void ChangeBookingListingForm_Load(object sender, EventArgs e)
+        private void ChangeBookingForm_Load(object sender, EventArgs e)
         {
             changeBookingListView.View = View.Details;
         }
@@ -150,8 +151,7 @@ namespace Phumla_Kamnandi.Presentation
         private void changeBookingListView_SelectedIndexChanged_1(object sender, EventArgs e)
         {
              ShowAll(true);
-
-            EnableEntries(true);
+            EnableEntries(false);
             if (changeBookingListView.SelectedItems.Count > 0) //if you select an Item
             {
                 booking = bookingController.Find(changeBookingListView.SelectedItems[0].Text);
@@ -162,10 +162,7 @@ namespace Phumla_Kamnandi.Presentation
         #endregion
 
         #region Buttons
-        private void editButton_Click(object sender, EventArgs e)
-        {
-            EnableEntries(true);
-        }
+      
 
         private void exitButton_Click(object sender, EventArgs e)
         {
@@ -177,7 +174,6 @@ namespace Phumla_Kamnandi.Presentation
         {
             PopulateObject();
             bookingController.DataMaintenance(booking, Data.DB.DBOperation.Edit);
-            MessageBox.Show("Booking To be changed!");
             bookingController.FinalizeChanges(booking);
             ClearAll();
             ShowAll(true);
@@ -185,7 +181,12 @@ namespace Phumla_Kamnandi.Presentation
             setUpChangeBookingListingForm();
         }
 
-        #endregion
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            EnableEntries(true);
+        }
 
+      
+        #endregion
     }
 }

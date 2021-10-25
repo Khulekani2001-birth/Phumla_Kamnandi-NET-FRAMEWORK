@@ -44,6 +44,7 @@ namespace Phumla_Kamnandi.Presentation
             this.depositLabel = new System.Windows.Forms.Label();
             this.guestIDLabel = new System.Windows.Forms.Label();
             this.despositComboBox = new System.Windows.Forms.ComboBox();
+            this.editButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // changeBookingListView
@@ -92,6 +93,7 @@ namespace Phumla_Kamnandi.Presentation
             this.changeBookingButton.TabIndex = 7;
             this.changeBookingButton.Text = "Make changes to booking";
             this.changeBookingButton.UseVisualStyleBackColor = true;
+            this.changeBookingButton.Click += new System.EventHandler(this.changeBookingButton_Click);
             // 
             // exitButton
             // 
@@ -177,11 +179,23 @@ namespace Phumla_Kamnandi.Presentation
             this.despositComboBox.Size = new System.Drawing.Size(100, 21);
             this.despositComboBox.TabIndex = 18;
             // 
+            // editButton
+            // 
+            this.editButton.BackgroundImage = global::Phumla_Kamnandi.Properties.Resources.draw_edit_pen_pencil_text_write_icon_1320162307919760358;
+            this.editButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.editButton.Location = new System.Drawing.Point(635, 239);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(40, 47);
+            this.editButton.TabIndex = 19;
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
             // ChangeBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.despositComboBox);
             this.Controls.Add(this.guestIDLabel);
             this.Controls.Add(this.depositLabel);
@@ -199,6 +213,7 @@ namespace Phumla_Kamnandi.Presentation
             this.Controls.Add(this.changeBookingListView);
             this.Name = "ChangeBookingForm";
             this.Text = "ChangeBookingForm";
+            this.Load += new System.EventHandler(this.ChangeBookingForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +236,6 @@ namespace Phumla_Kamnandi.Presentation
         private System.Windows.Forms.Label depositLabel;
         private System.Windows.Forms.Label guestIDLabel;
         private System.Windows.Forms.ComboBox despositComboBox;
+        private System.Windows.Forms.Button editButton;
     }
 }
