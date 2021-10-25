@@ -33,7 +33,6 @@ namespace Phumla_Kamnandi.Presentation
             this.IDTextBox = new System.Windows.Forms.TextBox();
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.roomNoTextBox = new System.Windows.Forms.TextBox();
-            this.depositTextBox = new System.Windows.Forms.TextBox();
             this.guestIDTextBox = new System.Windows.Forms.TextBox();
             this.changeBookingButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
@@ -44,6 +43,7 @@ namespace Phumla_Kamnandi.Presentation
             this.roomNoLabel = new System.Windows.Forms.Label();
             this.depositLabel = new System.Windows.Forms.Label();
             this.guestIDLabel = new System.Windows.Forms.Label();
+            this.despositComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // changeBookingListView
@@ -76,13 +76,6 @@ namespace Phumla_Kamnandi.Presentation
             this.roomNoTextBox.Name = "roomNoTextBox";
             this.roomNoTextBox.Size = new System.Drawing.Size(100, 20);
             this.roomNoTextBox.TabIndex = 4;
-            // 
-            // depositTextBox
-            // 
-            this.depositTextBox.Location = new System.Drawing.Point(166, 371);
-            this.depositTextBox.Name = "depositTextBox";
-            this.depositTextBox.Size = new System.Drawing.Size(100, 20);
-            this.depositTextBox.TabIndex = 5;
             // 
             // guestIDTextBox
             // 
@@ -173,11 +166,23 @@ namespace Phumla_Kamnandi.Presentation
             this.guestIDLabel.TabIndex = 17;
             this.guestIDLabel.Text = "Guest ID";
             // 
+            // despositComboBox
+            // 
+            this.despositComboBox.FormattingEnabled = true;
+            this.despositComboBox.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.despositComboBox.Location = new System.Drawing.Point(166, 366);
+            this.despositComboBox.Name = "despositComboBox";
+            this.despositComboBox.Size = new System.Drawing.Size(100, 21);
+            this.despositComboBox.TabIndex = 18;
+            // 
             // ChangeBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.despositComboBox);
             this.Controls.Add(this.guestIDLabel);
             this.Controls.Add(this.depositLabel);
             this.Controls.Add(this.roomNoLabel);
@@ -188,7 +193,6 @@ namespace Phumla_Kamnandi.Presentation
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.changeBookingButton);
             this.Controls.Add(this.guestIDTextBox);
-            this.Controls.Add(this.depositTextBox);
             this.Controls.Add(this.roomNoTextBox);
             this.Controls.Add(this.priceTextBox);
             this.Controls.Add(this.IDTextBox);
@@ -206,7 +210,6 @@ namespace Phumla_Kamnandi.Presentation
         private System.Windows.Forms.TextBox IDTextBox;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.TextBox roomNoTextBox;
-        private System.Windows.Forms.TextBox depositTextBox;
         private System.Windows.Forms.TextBox guestIDTextBox;
         private System.Windows.Forms.Button changeBookingButton;
         private System.Windows.Forms.Button exitButton;
@@ -217,5 +220,6 @@ namespace Phumla_Kamnandi.Presentation
         private System.Windows.Forms.Label roomNoLabel;
         private System.Windows.Forms.Label depositLabel;
         private System.Windows.Forms.Label guestIDLabel;
+        private System.Windows.Forms.ComboBox despositComboBox;
     }
 }

@@ -46,7 +46,7 @@ namespace Phumla_Kamnandi.Presentation
 
             IDTextBox.Visible = value;
             guestIDTextBox.Visible = value;
-            depositTextBox.Visible = value;
+           despositComboBox.Visible = value;
             roomNoTextBox.Visible = value;
             changeDateTimePicker.Visible = value;
             priceTextBox.Visible = value;
@@ -61,7 +61,7 @@ namespace Phumla_Kamnandi.Presentation
             changeDateTimePicker.Enabled = value;
             IDTextBox.Enabled = false; //cant change
             guestIDTextBox.Enabled = false; //cant change
-            depositTextBox.Enabled = value; //??
+           despositComboBox.Enabled = value; //??
             priceTextBox.Enabled = false; //cant set themselves
             roomNoTextBox.Enabled = false; //cant set
         }
@@ -78,7 +78,7 @@ namespace Phumla_Kamnandi.Presentation
         {
             booking.ID = IDTextBox.Text;
             //booking.GuestID = guestIDTextBox.Text;
-            booking.Deposit = Convert.ToBoolean(depositTextBox.Text);
+            booking.Deposit = Convert.ToBoolean(despositComboBox.Text);
             booking.RoomNo = 0;
             booking.Date = changeDateTimePicker.Value;
             booking.Price = booking.calculatePrice(changeDateTimePicker.Value);
@@ -89,7 +89,7 @@ namespace Phumla_Kamnandi.Presentation
         {
             IDTextBox.Text = "";
             guestIDTextBox.Text = "";
-            depositTextBox.Text = "";
+           despositComboBox.Text = "";
             roomNoTextBox.Text = "";
             changeDateTimePicker.Value = changeDateTimePicker.MinDate;
             priceTextBox.Text = "";

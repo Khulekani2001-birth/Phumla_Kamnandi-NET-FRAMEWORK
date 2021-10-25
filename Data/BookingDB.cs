@@ -261,13 +261,13 @@ namespace Phumla_Kamnandi.Data
 
         private void Create_INSERT_Command(Booking booking)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT INTO Bookings ("+ booking.ID.ToString() +", "+ Convert.ToInt32(booking.GuestID) +", "+ Convert.ToInt32(booking.RoomNo) +", " + booking.Date + ", " + booking.Price.ToString() + ", " + booking.Deposit.ToString() + ") VALUES (@BookingID, @GuestID, @RoomNo, @Date, @Price, @depositPaid)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT INTO Bookings ('"+ booking.ID.ToString() +"', '"+ Convert.ToInt32(booking.GuestID) +"', '"+ Convert.ToInt32(booking.RoomNo) +"', '" + booking.Date + "', '" + booking.Price.ToString() + "', '" + booking.Deposit.ToString() + "') VALUES (@BookingID, @GuestID, @RoomNo, @Date, @Price, @depositPaid)", cnMain);
 
             Build_INSERT_Parameters(booking);
         }
         private void Create_INSERT_Command(Guest guest)
         {
-            daMain.InsertCommand = new SqlCommand("INSERT into Guests ("+guest.ID+","+ guest.Name+","+ guest.Surname+","+ guest.Address+","+ guest.Phone+") VALUES (@GuestID, @Name, @Surname, @Address, @Phone)", cnMain);
+            daMain.InsertCommand = new SqlCommand("INSERT into Guests ('"+guest.ID+"','"+ guest.Name+"','"+ guest.Surname+"','"+ guest.Address+"','"+ guest.Phone+"') VALUES (@GuestID, @Name, @Surname, @Address, @Phone)", cnMain);
 
             Build_INSERT_Parameters(guest);
         }
@@ -296,7 +296,7 @@ namespace Phumla_Kamnandi.Data
         private void Build_UPDATE_Parameters(Booking booking)
         {
             SqlParameter param = default(SqlParameter);
-            param = new SqlParameter("@ID", SqlDbType.NVarChar, 100, "ID");
+            param = new SqlParameter("@BookingID", SqlDbType.NVarChar, 100, "ID");
             param.SourceVersion = DataRowVersion.Current;
             daMain.UpdateCommand.Parameters.Add(param);
 
@@ -323,7 +323,7 @@ namespace Phumla_Kamnandi.Data
 
         private void Create_UPDATE_Command(Booking booking)
         {
-            daMain.UpdateCommand = new SqlCommand("UPDATE Bookings SET ID =@ID,GuestID =@GuestID, RoomNo = @RoomNo, Date =@Date, Price =@Price, depositPaid =@depositPaid " + "WHERE BookingID = @BookingID", cnMain);
+            daMain.UpdateCommand = new SqlCommand("UPDATE Bookings SET ID =@BookingID, GuestID =@GuestID, RoomNo = @RoomNo, Date =@Date, Price =@Price, depositPaid =@depositPaid " + "WHERE ID = @BookingID", cnMain);
 
             Build_UPDATE_Parameters(booking);
         }
