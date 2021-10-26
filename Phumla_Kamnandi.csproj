@@ -180,6 +180,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>PhumlaKamnandiDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\images.jfif" />
     <Content Include="Resources\Phumla Kamnandi Hotels.png" />
     <None Include="Resources\draw+edit+pen+pencil+text+write+icon-1320162307919760358.png" />
     <None Include="Resources\download.png" />

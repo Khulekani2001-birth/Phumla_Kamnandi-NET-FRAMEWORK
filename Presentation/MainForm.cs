@@ -125,6 +125,18 @@ namespace Phumla_Kamnandi.Presentation
             AvalabilityListView.Clear();
         }
 
+        private void OccupancyButton_Click(object sender, EventArgs e)
+        {
+            AvalabilityListView.View = View.Details;
+            setUpDailyReportyListView();
+        }
+
+        private void monthlyButtons_Click(object sender, EventArgs e)
+        {
+            AvalabilityListView.View = View.Details;
+            setUpmonthlyReportListView();
+        }
+
         #endregion
 
         #region Child Forms
@@ -166,6 +178,7 @@ namespace Phumla_Kamnandi.Presentation
 
         #region List View SetUp
 
+        //for Room Availability
         public void setUpAvalabilityListView()
         {
             ListViewItem availabilityDetails;
@@ -187,12 +200,6 @@ namespace Phumla_Kamnandi.Presentation
                 if (availabledateTimePicker.Value.Date.ToString() == abooking.Date.ToString()) 
                 {
                     rom--;
-                   /* availabilityDetails.Text = availabledateTimePicker.Value.Date.ToString();
-                    availabilityDetails.SubItems.Add(abooking.Price.ToString());
-                    availabilityDetails.SubItems.Add(roomUsed.ToString() + " Room used");
-
-                    AvalabilityListView.Items.Add(availabilityDetails);*/
-
                 }
                 if(size==count && rom<5)
                 {
@@ -216,7 +223,49 @@ namespace Phumla_Kamnandi.Presentation
             AvalabilityListView.GridLines = true;
 
         }
+
+        //occupancy Report report 
+        public void setUpDailyReportyListView()
+        {
+            ListViewItem availabilityDetails;
+            AvalabilityListView.Clear();
+            bookings = bookingController.allBookings;
+
+            AvalabilityListView.Columns.Insert(0, "BookingID", 120, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(1, "Date", 120, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(2, "GuestID", 120, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(3, "Price", 120, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(4, "Deposit", 120, HorizontalAlignment.Left);
+
+            int count = 0;
+            foreach (Booking abooking in bookings)
+            {
+                count++;
+                availabilityDetails = new ListViewItem();
+
+                if (availabledateTimePicker.Value.Date.ToString() == abooking.Date.ToString())
+                {
+
+                    availabilityDetails.Text = abooking.ID; 
+                    availabilityDetails.SubItems.Add(availabledateTimePicker.Value.Date.Date.ToString());
+                    availabilityDetails.SubItems.Add(abooking.GuestID.ToString());
+                    availabilityDetails.SubItems.Add(abooking.Deposit.ToString());
+                    AvalabilityListView.Items.Add(availabilityDetails);
+                }
+                
+            }
+            AvalabilityListView.Refresh();
+            AvalabilityListView.GridLines = true;
+        
+        }
+
+        public void setUpmonthlyReportListView()
+        {
+
+        }
+
         #endregion
 
+       
     }
 }
