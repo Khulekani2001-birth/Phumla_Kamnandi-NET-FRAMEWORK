@@ -57,7 +57,7 @@ namespace Phumla_Kamnandi.Presentation
             booking.Date = pickDateTimePicker.Value;
             booking.Price = booking.calculatePrice(pickDateTimePicker.Value);
             booking.RoomNo = 0;
-            booking.Deposit = false;
+            booking.Deposit = true;
         }
         #endregion
 
