@@ -46,6 +46,7 @@ namespace Phumla_Kamnandi.Presentation
             this.IDLabel = new System.Windows.Forms.Label();
             this.depositComboBox = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.promptLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // exitButton
@@ -116,10 +117,10 @@ namespace Phumla_Kamnandi.Presentation
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(61, 241);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 20);
+            this.label1.Size = new System.Drawing.Size(135, 20);
             this.label1.TabIndex = 10;
             this.label1.Text = "Booking Details";
             // 
@@ -206,12 +207,23 @@ namespace Phumla_Kamnandi.Presentation
             this.button1.TabIndex = 22;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // promptLabel
+            // 
+            this.promptLabel.AutoSize = true;
+            this.promptLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.promptLabel.Location = new System.Drawing.Point(231, 7);
+            this.promptLabel.Name = "promptLabel";
+            this.promptLabel.Size = new System.Drawing.Size(447, 46);
+            this.promptLabel.TabIndex = 23;
+            this.promptLabel.Text = "Select booking to cancel";
+            // 
             // CancelBookingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.promptLabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.depositComboBox);
             this.Controls.Add(this.IDLabel);
@@ -255,5 +267,6 @@ namespace Phumla_Kamnandi.Presentation
         private System.Windows.Forms.Label IDLabel;
         private System.Windows.Forms.ComboBox depositComboBox;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label promptLabel;
     }
 }
