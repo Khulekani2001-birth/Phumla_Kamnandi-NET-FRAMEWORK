@@ -231,24 +231,25 @@ namespace Phumla_Kamnandi.Presentation
             AvalabilityListView.Clear();
             bookings = bookingController.allBookings;
 
-            AvalabilityListView.Columns.Insert(0, "BookingID", 120, HorizontalAlignment.Left);
-            AvalabilityListView.Columns.Insert(1, "Date", 120, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(0, "BookingID", 110, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(1, "Day", 110, HorizontalAlignment.Left);
             AvalabilityListView.Columns.Insert(2, "GuestID", 120, HorizontalAlignment.Left);
             AvalabilityListView.Columns.Insert(3, "Price", 120, HorizontalAlignment.Left);
             AvalabilityListView.Columns.Insert(4, "Deposit", 120, HorizontalAlignment.Left);
 
-            int count = 0;
+            
             foreach (Booking abooking in bookings)
             {
-                count++;
+                
                 availabilityDetails = new ListViewItem();
 
-                if (availabledateTimePicker.Value.Date.ToString() == abooking.Date.ToString())
+                if (availabledateTimePicker.Value.Date.Day.ToString() == abooking.Date.Day.ToString())
                 {
 
                     availabilityDetails.Text = abooking.ID; 
-                    availabilityDetails.SubItems.Add(availabledateTimePicker.Value.Date.Date.ToString());
+                    availabilityDetails.SubItems.Add(availabledateTimePicker.Value.Date.Date.Day.ToString());
                     availabilityDetails.SubItems.Add(abooking.GuestID.ToString());
+                    availabilityDetails.SubItems.Add(abooking.Price.ToString());
                     availabilityDetails.SubItems.Add(abooking.Deposit.ToString());
                     AvalabilityListView.Items.Add(availabilityDetails);
                 }
@@ -261,7 +262,36 @@ namespace Phumla_Kamnandi.Presentation
 
         public void setUpmonthlyReportListView()
         {
+            ListViewItem availabilityDetails;
+            AvalabilityListView.Clear();
+            bookings = bookingController.allBookings;
 
+            AvalabilityListView.Columns.Insert(0, "BookingID", 100, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(1, "GuestID", 100, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(2, "Month", 120, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(3, "Price", 100, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(4, "Deposit", 120, HorizontalAlignment.Left);
+
+
+            foreach (Booking abooking in bookings)
+            {
+                availabilityDetails = new ListViewItem();
+
+                if (availabledateTimePicker.Value.Date.Month.ToString() == abooking.Date.Month.ToString())
+                {
+
+                    availabilityDetails.Text = abooking.ID;
+                    availabilityDetails.SubItems.Add(abooking.GuestID.ToString());
+                    availabilityDetails.SubItems.Add(availabledateTimePicker.Value.Date.Date.Month.ToString());
+                    availabilityDetails.SubItems.Add(abooking.Price.ToString());
+                    availabilityDetails.SubItems.Add(abooking.Deposit.ToString());
+
+                    AvalabilityListView.Items.Add(availabilityDetails);
+                }
+
+            }
+            AvalabilityListView.Refresh();
+            AvalabilityListView.GridLines = true;
         }
 
         #endregion
