@@ -36,8 +36,8 @@ namespace Phumla_Kamnandi.Presentation
             guestController = new GuestController();
         }
         #endregion
- 
-        # region Form events
+
+        #region Form events
         private void changeBookingButton_Click(object sender, EventArgs e)
         {
             if (changeBookingForm == null)
@@ -111,12 +111,13 @@ namespace Phumla_Kamnandi.Presentation
                 CreateCreateGuestForm();
             }
 
-            createGuestForm.Show(); 
+            createGuestForm.Show();
         }
 
         private void checkAvailabilityLabel_Click(object sender, EventArgs e)
         {
-            setUpAvalabilityListViewListingForm();
+            AvalabilityListView.View = View.Details;
+            setUpAvalabilityListView();
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
@@ -147,7 +148,7 @@ namespace Phumla_Kamnandi.Presentation
             changeBookingForm.StartPosition = FormStartPosition.CenterParent;
             //this.Hide();
         }
-        
+
         private void CreateCreateBookingListingForm()
         {
             createBookingForm = new CreateBookingForm(bookingController);
@@ -164,52 +165,57 @@ namespace Phumla_Kamnandi.Presentation
         #endregion
 
         #region List View SetUp
-        public void setUpAvalabilityListViewListingForm()
-        {
-            ListViewItem AvalabilityListViewDetails;
-            AvalabilityListView.Clear();
 
+        public void setUpAvalabilityListView()
+        {
+            ListViewItem availabilityDetails;
+            AvalabilityListView.Clear();
             bookings = bookingController.allBookings;
 
             AvalabilityListView.Columns.Insert(0, "Date", 120, HorizontalAlignment.Left);
             AvalabilityListView.Columns.Insert(1, "Price", 120, HorizontalAlignment.Left);
-            AvalabilityListView.Columns.Insert(2, "status", 120, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(2, "status", 150, HorizontalAlignment.Left);
 
             int count = 0; //for counting the number iterations
             int size = bookings.Count;
-
-            foreach (Booking booking in bookings)
+            int rom = 5;
+            foreach (Booking abooking in bookings)
             {
-                AvalabilityListViewDetails = new ListViewItem();
                 count++;
-
-                if (availabledateTimePicker.Value == booking.Date)
+                availabilityDetails = new ListViewItem();
+                
+                if (availabledateTimePicker.Value.Date.ToString() == abooking.Date.ToString()) 
                 {
+                    rom--;
+                   /* availabilityDetails.Text = availabledateTimePicker.Value.Date.ToString();
+                    availabilityDetails.SubItems.Add(abooking.Price.ToString());
+                    availabilityDetails.SubItems.Add(roomUsed.ToString() + " Room used");
 
-                    AvalabilityListViewDetails.Text = booking.Date.ToString();
-                    AvalabilityListViewDetails.SubItems.Add(booking.Price.ToString());
-                    AvalabilityListViewDetails.SubItems.Add(count.ToString());
+                    AvalabilityListView.Items.Add(availabilityDetails);*/
 
-                    AvalabilityListView.Items.Add(AvalabilityListViewDetails);
-                    
                 }
-               if (AvalabilityListView.Items.Count == 0 && count ==size)   //checking if there are values if listview after all possible additions
+                if(size==count && rom<5)
                 {
-                    decimal price = booking.calculatePrice(availabledateTimePicker.Value);
+                    availabilityDetails.Text = availabledateTimePicker.Value.Date.Date.ToString();
+                    availabilityDetails.SubItems.Add(abooking.Price.ToString());
+                    availabilityDetails.SubItems.Add("Only "+rom.ToString() + " Room(s) are available");
+                    AvalabilityListView.Items.Add(availabilityDetails);
+                }
+                if (AvalabilityListView.Items.Count == 0 && count == size)   //checking if there are values if listview after all possible additions
+                {
+                    decimal price = abooking.calculatePrice(availabledateTimePicker.Value);
 
-                    AvalabilityListViewDetails.Text = availabledateTimePicker.Value.ToString();
-                    AvalabilityListViewDetails.SubItems.Add(price.ToString());
-                    AvalabilityListViewDetails.SubItems.Add("All rooms are Available");
+                    availabilityDetails.Text = availabledateTimePicker.Value.ToString();
+                    availabilityDetails.SubItems.Add(price.ToString());
+                    availabilityDetails.SubItems.Add("All 5 Room(s) are Available");
 
-                    AvalabilityListView.Items.Add(AvalabilityListViewDetails);
+                    AvalabilityListView.Items.Add(availabilityDetails);
                 }
             }
-            
             AvalabilityListView.Refresh();
             AvalabilityListView.GridLines = true;
 
         }
-
         #endregion
 
     }
