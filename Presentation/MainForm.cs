@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Phumla_Kamnandi.Business;
+using System.Collections.ObjectModel;
 
 namespace Phumla_Kamnandi.Presentation
 {
@@ -21,7 +22,10 @@ namespace Phumla_Kamnandi.Presentation
         CreateGuestForm createGuestForm;
         BookingController bookingController;
         GuestController guestController;
+        //for availability
+        Collection<Booking> bookings;
         #endregion
+
 
         #region Constructor
         public MainForm()
@@ -32,7 +36,7 @@ namespace Phumla_Kamnandi.Presentation
             guestController = new GuestController();
         }
         #endregion
-
+ 
         # region Form events
         private void changeBookingButton_Click(object sender, EventArgs e)
         {
@@ -109,7 +113,17 @@ namespace Phumla_Kamnandi.Presentation
 
             createGuestForm.Show(); 
         }
-    
+
+        private void checkAvailabilityLabel_Click(object sender, EventArgs e)
+        {
+            setUpAvalabilityListViewListingForm();
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            AvalabilityListView.Clear();
+        }
+
         #endregion
 
         #region Child Forms
@@ -146,8 +160,57 @@ namespace Phumla_Kamnandi.Presentation
             createGuestForm = new CreateGuestForm(guestController);
             createGuestForm.StartPosition = FormStartPosition.CenterParent;
         }
+
         #endregion
 
-       
+        #region List View SetUp
+        public void setUpAvalabilityListViewListingForm()
+        {
+            ListViewItem AvalabilityListViewDetails;
+            AvalabilityListView.Clear();
+
+            bookings = bookingController.allBookings;
+
+            AvalabilityListView.Columns.Insert(0, "Date", 120, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(1, "Price", 120, HorizontalAlignment.Left);
+            AvalabilityListView.Columns.Insert(2, "status", 120, HorizontalAlignment.Left);
+
+            int count = 0; //for counting the number iterations
+            int size = bookings.Count;
+
+            foreach (Booking booking in bookings)
+            {
+                AvalabilityListViewDetails = new ListViewItem();
+                count++;
+
+                if (availabledateTimePicker.Value == booking.Date)
+                {
+
+                    AvalabilityListViewDetails.Text = booking.Date.ToString();
+                    AvalabilityListViewDetails.SubItems.Add(booking.Price.ToString());
+                    AvalabilityListViewDetails.SubItems.Add(count.ToString());
+
+                    AvalabilityListView.Items.Add(AvalabilityListViewDetails);
+                    
+                }
+               if (AvalabilityListView.Items.Count == 0 && count ==size)   //checking if there are values if listview after all possible additions
+                {
+                    decimal price = booking.calculatePrice(availabledateTimePicker.Value);
+
+                    AvalabilityListViewDetails.Text = availabledateTimePicker.Value.ToString();
+                    AvalabilityListViewDetails.SubItems.Add(price.ToString());
+                    AvalabilityListViewDetails.SubItems.Add("All rooms are Available");
+
+                    AvalabilityListView.Items.Add(AvalabilityListViewDetails);
+                }
+            }
+            
+            AvalabilityListView.Refresh();
+            AvalabilityListView.GridLines = true;
+
+        }
+
+        #endregion
+
     }
 }

@@ -23,7 +23,8 @@ namespace Phumla_Kamnandi.Data
         {
             Add,
             Edit,
-            Delete
+            Delete,
+            Search,
         }
         #endregion
 

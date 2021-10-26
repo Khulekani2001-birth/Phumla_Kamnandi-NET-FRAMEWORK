@@ -35,6 +35,11 @@ namespace Phumla_Kamnandi.Presentation
             this.newBookingButton = new System.Windows.Forms.Button();
             this.newGuestButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.AvalabilityListView = new System.Windows.Forms.ListView();
+            this.checkAvailabilityLabel = new System.Windows.Forms.Button();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.availabledateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.ClearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // changeBookingButton
@@ -99,12 +104,66 @@ namespace Phumla_Kamnandi.Presentation
             this.button1.TabIndex = 22;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // AvalabilityListView
+            // 
+            this.AvalabilityListView.GridLines = true;
+            this.AvalabilityListView.HideSelection = false;
+            this.AvalabilityListView.Location = new System.Drawing.Point(245, 80);
+            this.AvalabilityListView.Name = "AvalabilityListView";
+            this.AvalabilityListView.Size = new System.Drawing.Size(477, 164);
+            this.AvalabilityListView.TabIndex = 23;
+            this.AvalabilityListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // checkAvailabilityLabel
+            // 
+            this.checkAvailabilityLabel.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkAvailabilityLabel.Location = new System.Drawing.Point(40, 217);
+            this.checkAvailabilityLabel.Name = "checkAvailabilityLabel";
+            this.checkAvailabilityLabel.Size = new System.Drawing.Size(154, 27);
+            this.checkAvailabilityLabel.TabIndex = 24;
+            this.checkAvailabilityLabel.Text = "Check Availability";
+            this.checkAvailabilityLabel.UseVisualStyleBackColor = true;
+            this.checkAvailabilityLabel.Click += new System.EventHandler(this.checkAvailabilityLabel_Click);
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.Location = new System.Drawing.Point(36, 130);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(119, 23);
+            this.dateLabel.TabIndex = 25;
+            this.dateLabel.Text = "Check_in Date";
+            // 
+            // availabledateTimePicker
+            // 
+            this.availabledateTimePicker.Location = new System.Drawing.Point(27, 172);
+            this.availabledateTimePicker.Name = "availabledateTimePicker";
+            this.availabledateTimePicker.Size = new System.Drawing.Size(199, 20);
+            this.availabledateTimePicker.TabIndex = 26;
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearButton.Location = new System.Drawing.Point(245, 250);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(75, 23);
+            this.ClearButton.TabIndex = 27;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ClearButton);
+            this.Controls.Add(this.availabledateTimePicker);
+            this.Controls.Add(this.dateLabel);
+            this.Controls.Add(this.checkAvailabilityLabel);
+            this.Controls.Add(this.AvalabilityListView);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.newGuestButton);
             this.Controls.Add(this.newBookingButton);
@@ -114,6 +173,7 @@ namespace Phumla_Kamnandi.Presentation
             this.Name = "MainForm";
             this.Text = "Main Form";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -125,5 +185,10 @@ namespace Phumla_Kamnandi.Presentation
         private System.Windows.Forms.Button newBookingButton;
         private System.Windows.Forms.Button newGuestButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView AvalabilityListView;
+        private System.Windows.Forms.Button checkAvailabilityLabel;
+        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.DateTimePicker availabledateTimePicker;
+        private System.Windows.Forms.Button ClearButton;
     }
 }
