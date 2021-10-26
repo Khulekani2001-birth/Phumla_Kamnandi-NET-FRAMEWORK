@@ -43,7 +43,7 @@ namespace Phumla_Kamnandi.Presentation
             // 
             // enterButton
             // 
-            this.enterButton.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enterButton.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enterButton.Location = new System.Drawing.Point(599, 251);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(119, 86);
@@ -106,7 +106,7 @@ namespace Phumla_Kamnandi.Presentation
             // 
             // exitButton
             // 
-            this.exitButton.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.Location = new System.Drawing.Point(599, 354);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(119, 45);

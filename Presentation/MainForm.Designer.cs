@@ -74,7 +74,7 @@ namespace Phumla_Kamnandi.Presentation
             this.listBookingsButton.Name = "listBookingsButton";
             this.listBookingsButton.Size = new System.Drawing.Size(98, 33);
             this.listBookingsButton.TabIndex = 2;
-            this.listBookingsButton.Text = "list Bookings";
+            this.listBookingsButton.Text = "List Bookings";
             this.listBookingsButton.UseVisualStyleBackColor = true;
             this.listBookingsButton.Click += new System.EventHandler(this.listBookingsButton_Click);
             // 
@@ -124,12 +124,12 @@ namespace Phumla_Kamnandi.Presentation
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLabel.Location = new System.Drawing.Point(25, 130);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Size = new System.Drawing.Size(119, 23);
+            this.dateLabel.Size = new System.Drawing.Size(109, 20);
             this.dateLabel.TabIndex = 25;
-            this.dateLabel.Text = "Check_in Date";
+            this.dateLabel.Text = "Check in Date";
             // 
             // availabledateTimePicker
             // 
@@ -142,10 +142,10 @@ namespace Phumla_Kamnandi.Presentation
             // avLabel
             // 
             this.avLabel.AutoSize = true;
-            this.avLabel.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.avLabel.Location = new System.Drawing.Point(236, 27);
+            this.avLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.avLabel.Location = new System.Drawing.Point(243, 9);
             this.avLabel.Name = "avLabel";
-            this.avLabel.Size = new System.Drawing.Size(86, 19);
+            this.avLabel.Size = new System.Drawing.Size(169, 31);
             this.avLabel.TabIndex = 28;
             this.avLabel.Text = "Report Info:";
             // 

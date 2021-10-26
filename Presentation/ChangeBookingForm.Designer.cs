@@ -89,7 +89,7 @@ namespace Phumla_Kamnandi.Presentation
             // 
             // changeBookingButton
             // 
-            this.changeBookingButton.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeBookingButton.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.changeBookingButton.Location = new System.Drawing.Point(613, 341);
             this.changeBookingButton.Name = "changeBookingButton";
             this.changeBookingButton.Size = new System.Drawing.Size(175, 43);
@@ -100,7 +100,7 @@ namespace Phumla_Kamnandi.Presentation
             // 
             // exitButton
             // 
-            this.exitButton.Font = new System.Drawing.Font("Segoe UI Symbol", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.Location = new System.Drawing.Point(699, 393);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 54);
